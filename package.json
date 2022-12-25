@@ -7,8 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "storybook": "storybook dev -p 6006 -s ./public",
+    "build-storybook": "storybook build -s public"
   },
   "dependencies": {
     "@next/font": "13.0.7",
