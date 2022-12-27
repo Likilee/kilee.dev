@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { Decorator } from '@storybook/react'
 import { ThemeProvider } from 'next-themes'
 
-export const withThemeProvider: Decorator = (Story, context) => {
+export const withTheme: Decorator = (Story, context) => {
   const { theme } = context.globals
 
   // Sync 'pages/_document.tsx' default style
@@ -22,17 +22,4 @@ export const withThemeProvider: Decorator = (Story, context) => {
       <Story />
     </ThemeProvider>
   )
-}
-
-export const withTheme: Decorator = (Story, context) => {
-  const { theme } = context.globals
-
-  useEffect(() => {
-    const htmlTag = document.documentElement
-
-    htmlTag.setAttribute('class', theme || 'light')
-    htmlTag.setAttribute('style', `color-scheme: ${theme || 'light'}`)
-  }, [theme])
-
-  return <Story />
 }

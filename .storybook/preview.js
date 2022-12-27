@@ -19,8 +19,8 @@ export const globalTypes = {
       icon: 'paintbrush',
       // Array of plain string values or MenuItem shape
       items: [
-        { value: 'light', title: 'Light', left: '🌞' },
-        { value: 'dark', title: 'Dark', left: '🌛' },
+        { value: 'light', title: 'Light', right: '✨' },
+        { value: 'dark', title: 'Dark', right: '🕶️' },
       ],
       // Change title based on selected value
       dynamicTitle: true,
@@ -28,4 +28,4 @@ export const globalTypes = {
   },
 }
 
-export const decorators = [withThemeProvider, withTheme]
+export const decorators = [withTheme]
