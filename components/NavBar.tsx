@@ -36,7 +36,7 @@ export default function NavBar() {
         <div className="flex gap-1">
           <NavItem href="/" text="Home" />
           <NavItem href="/blog" text="Blog" />
-          <NavItem href="/blog" text="Resume" />
+          <NavItem href="/resume" text="Resume" />
         </div>
         <ThemeToggle />
       </nav>
