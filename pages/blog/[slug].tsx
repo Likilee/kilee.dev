@@ -1,44 +1,44 @@
+import Container from 'components/Container/Container'
+import { BLOG_SERVER } from 'config/server'
+import { Post } from 'lib/types'
+import { dummyPosts } from 'mocks/data/posts'
 import {
   GetStaticPaths,
-  GetStaticProps,
   GetStaticPropsContext,
   InferGetStaticPropsType,
 } from 'next'
 
-type Post = {
-  content: string;
+export default function PostPage({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
+  return (
+    <Container>
+      <div>{post.title}</div>
+      <div>{post.content}</div>
+    </Container>
+  )
 }
 
-export function PostPage({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
-  return <div>Post Page</div>
-}
-
+/* ✅ TODO:  Pre-render time 에 msw 가 동작하지 않는 이슈 해결법 있는지.*/
 export const getStaticPaths: GetStaticPaths = async () => {
-  const posts = [
-    { slug: 'hello-world', contents: 'Hello world' },
-    { slug: 'bye-world', contents: 'Bye world' },
-  ]
-  const paths = posts.map((post) => post.slug)
+  const posts = dummyPosts
 
   return {
-    paths,
     fallback: false,
+    paths: dummyPosts.map((post) => ({ params: { slug: post.slug } })),
   }
 }
 
-export const getStaticProps: GetStaticProps = async ({ params }: GetStaticPropsContext) => {
+export const getStaticProps = async ({ params }: GetStaticPropsContext<{ slug: string }>) => {
   if (!params) throw new Error('No Params')
+  const { slug } = params
+  const res = await fetch(`${BLOG_SERVER}/post/?slug=${slug}`)
+  const post: Post = await res.json()
 
-  const posts = [
-    { slug: 'hello-world', contents: 'Hello world' },
-    { slug: 'bye-world', contents: 'Bye world' },
-  ]
-  const post = posts.find(({ slug }) => slug === params.slug)
   if (!post) {
     return { notFound: true }
   }
   return {
     props: {
-    }
+      post,
+    },
   }
 }

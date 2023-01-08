@@ -3,8 +3,8 @@ export type Post = {
   slug: string
   content: string //MDXRemoteSerializeResult
   title: string
+  excerpt: string
   // date: string
-  // excerpt: string
   // coverImage: string
   // readingTime: string
   // tweets: any[]

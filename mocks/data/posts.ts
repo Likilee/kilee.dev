@@ -11,6 +11,7 @@ const post1: Post = {
 TIme to know \`about kilee\`
   `,
   title: '테스트 포스트 1입니다',
+  excerpt: '포스트 요약',
 }
 
 const post2: Post = {
@@ -24,6 +25,7 @@ const post2: Post = {
 TIme to know \`about kilee\`
   `,
   title: '테스트 포스트 2입니다',
+  excerpt: '포스트 요약',
 }
 
 const post3: Post = {
@@ -37,6 +39,7 @@ const post3: Post = {
 TIme to know \`about kilee\`
   `,
   title: '테스트 포스트 3입니다',
+  excerpt: '포스트 요약',
 }
 
 export const dummyPosts: Post[] = [post1, post2, post3]

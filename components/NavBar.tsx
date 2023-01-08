@@ -1,5 +1,3 @@
-'use client'
-
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import cn from 'classnames'
@@ -12,6 +10,7 @@ interface NavItemProps {
 
 function NavItem({ href, text }: NavItemProps) {
   const path = usePathname()
+  console.log(path);
   const isActive = path === href
 
   return (
