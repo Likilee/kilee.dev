@@ -1,9 +1,9 @@
-import Container from "../../components/Container/Container";
+import PageLayout from 'components/PageLayout'
 
 export default function Resume() {
-  return <Container>
-    <div>
-      Resume Page
-    </div>
-  </Container>
+  return (
+    <PageLayout>
+      <div>Resume Page</div>
+    </PageLayout>
+  )
 }

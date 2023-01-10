@@ -1,28 +1,29 @@
-import { BlogPost } from 'components/BlogPost/BlogPost'
+import { BlogPost } from 'components/BlogPost'
 import { BLOG_SERVER } from 'config/server'
 import { GetStaticProps, InferGetServerSidePropsType } from 'next'
-import Container from 'components/Container/Container'
 import { Post } from 'lib/types'
+import PageLayout from 'components/PageLayout'
 
 export default function Blog({ posts }: InferGetServerSidePropsType<typeof getStaticProps>) {
   return (
-    <Container>
-      <div>BLOG PAGE</div>
+    <PageLayout>
+      <h1 className="w-full">BLOG PAGE</h1>
       {posts.map((post) => (
-        <BlogPost key={post._id}
-        slug={post.slug}
-        title={post.title}
-        content={post.content}
-        excerpt={post.excerpt}
+        <BlogPost
+          key={post._id}
+          slug={post.slug}
+          title={post.title}
+          content={post.content}
+          excerpt={post.excerpt}
         />
       ))}
-    </Container>
+    </PageLayout>
   )
 }
 
 export const getStaticProps: GetStaticProps<{ posts: Post[] }> = async () => {
   const res = await fetch(`${BLOG_SERVER}/posts`)
-  console.log("RES", res)
+  console.log('RES', res)
 
   const posts: Post[] = await res.json()
   return {
