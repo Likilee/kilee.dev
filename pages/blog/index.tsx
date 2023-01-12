@@ -2,7 +2,7 @@ import { BlogPost } from 'components/BlogPost'
 import { BLOG_SERVER } from 'config/server'
 import { GetStaticProps, InferGetServerSidePropsType } from 'next'
 import { Post } from 'lib/types'
-import PageLayout from 'components/PageLayout'
+import PageLayout from 'layouts/PageLayout'
 
 export default function Blog({ posts }: InferGetServerSidePropsType<typeof getStaticProps>) {
   return (

@@ -1,7 +1,7 @@
 import 'styles/global.css'
 import type { AppProps } from 'next/app'
 import { ThemeProvider } from 'next-themes'
-import Layout from 'components/Layout'
+import Layout from 'layouts/BaseLayout'
 
 if (process.env.NEXT_PUBLIC_API_MOCKING === 'enabled') {
   await import('../mocks')

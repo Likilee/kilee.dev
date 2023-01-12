@@ -1,4 +1,4 @@
-import PageLayout from 'components/PageLayout'
+import PageLayout from 'layouts/PageLayout'
 
 export default function Resume() {
   return (
