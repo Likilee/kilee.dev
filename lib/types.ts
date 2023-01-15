@@ -4,7 +4,7 @@ export type Post = {
   content: string //MDXRemoteSerializeResult
   title: string
   excerpt: string
-  // date: string
+  date: string
   // coverImage: string
   // readingTime: string
   // tweets: any[]
