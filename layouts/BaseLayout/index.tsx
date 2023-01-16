@@ -2,7 +2,8 @@ import { PropsWithChildren, useEffect, useState } from 'react'
 import NavBar from 'components/NavBar'
 import Footer from 'components/Footer'
 import cn from 'classnames'
-export default function Layout(props: PropsWithChildren) {
+
+export default function BaseLayout(props: PropsWithChildren) {
   const { children } = props
 
   return (
