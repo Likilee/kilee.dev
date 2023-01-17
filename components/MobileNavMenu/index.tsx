@@ -67,7 +67,7 @@ export default function MobileNavMenu() {
         <ul
           className={cn(
             'flex flex-col absolute gap-6 bg-gray-50 dark:bg-gray-900',
-            'dark:bg-gray-900 bg-white',
+            'dark:bg-gray-900 bg-gray-50',
             'pb-1 pr-7',
             'left-0 top-24 h-[calc(100vh-6rem)] w-full',
             styles.menuBeforeRender,

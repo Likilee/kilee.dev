@@ -1,14 +1,15 @@
+import PageLayout from 'layouts/PageLayout'
 import { GetStaticProps, InferGetServerSidePropsType } from 'next'
 import { createClient } from 'next-sanity'
 
 export default function Home({ posts }: InferGetServerSidePropsType<typeof getStaticProps>) {
   console.log(posts)
   return (
-    <main>
+    <PageLayout>
       {posts.map((post, index) => (
-        <div key={index}>${post.contents}</div>
+        <div key={index}>${post.content}</div>
       ))}
-    </main>
+    </PageLayout>
   )
 }
 

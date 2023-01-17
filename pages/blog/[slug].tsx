@@ -5,20 +5,22 @@ import { getAllFileNames, getAllSlugs, getSlug } from 'lib/files'
 import { bundleMDX } from 'mdx-bundler'
 import { getMDXSourceFromLocal } from 'lib/mdx'
 import { Post } from 'lib/types'
+import { sanityClient } from 'lib/sanity'
+import { allPostQuery } from 'lib/sanity-query'
+import PageLayout from 'layouts/PageLayout'
 
 export default function PostPage({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
-
-  const {content, title, date} = post;
-  const Component = useMemo(() => getMDXComponent(content), [content]);
+  const { content, title, date } = post
+  const Component = useMemo(() => getMDXComponent(content), [content])
 
   return (
-    <>
+    <PageLayout>
       <div>{title}</div>
       <div>{date}</div>
       <article className="prose prose-slate md:prose-lg dark:prose-invert">
         <Component />
       </article>
-    </>
+    </PageLayout>
   )
 }
 
@@ -26,10 +28,10 @@ export default function PostPage({ post }: InferGetStaticPropsType<typeof getSta
 // Static Paths 를 가져온다.
 // data/blog/*.(md,mdx) 파일명에서 slug를 추출해내서 만든다.
 export const getStaticPaths: GetStaticPaths = async () => {
-  const slugs = getAllSlugs()
+  const posts: Post[] = await sanityClient.fetch(allPostQuery)
   return {
     fallback: false,
-    paths: slugs.map((slug) => ({ params: { slug } })),
+    paths: posts.map(({ slug }) => ({ params: { slug } })),
   }
 }
 
@@ -42,32 +44,24 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps = async ({ params }: GetStaticPropsContext<{ slug: string }>) => {
   if (!params) throw new Error('No Params In this page')
 
-  const { slug } = params
-  const fileName = getAllFileNames().find(
-    (fileName) => getSlug(fileName.replace(/\.(mdx|md)/, '')) === slug,
-  )
+  const posts: Post[] = await sanityClient.fetch(allPostQuery);
+  const post = posts.find(({slug}) => params.slug === slug );
 
-  if (!fileName) {
+  if (!post) {
     return { notFound: true }
   }
-  const source = getMDXSourceFromLocal(fileName)
-  const result = await bundleMDX<{ title: string; description: string; published: Date }>({
-    source,
+  const result = await bundleMDX({
+    source: post.content,
     cwd: process.cwd(),
   })
-  const { code, frontmatter } = result
+  const { code } = result
 
-  const post: Post = {
-    _id: slug,
-    slug: slug,
-    content: code,
-    title: frontmatter.title,
-    excerpt: frontmatter.description,
-    date: frontmatter.published.toISOString(),
-  }
   return {
     props: {
-      post,
+      post: {
+        ...post,
+        content: code,
+      }
     },
   }
 }
