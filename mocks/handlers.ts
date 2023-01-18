@@ -4,7 +4,6 @@ import { Post } from 'lib/types'
 import { dummyPosts } from './data/posts'
 
 const getPosts = rest.get(`${BLOG_SERVER}/posts`, (req, res, ctx) => {
-  console.log('ITS MINE!', req)
   return res(ctx.status(200), ctx.json<Post[]>(dummyPosts))
 })
 

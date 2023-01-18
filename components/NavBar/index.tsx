@@ -11,7 +11,6 @@ interface NavItemProps {
 
 function NavItem({ href, text }: NavItemProps) {
   const path = usePathname()
-  console.log(path)
   const isActive = path === href
 
   return (

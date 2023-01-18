@@ -3,7 +3,6 @@ import { GetStaticProps, InferGetServerSidePropsType } from 'next'
 import { createClient } from 'next-sanity'
 
 export default function Home({ posts }: InferGetServerSidePropsType<typeof getStaticProps>) {
-  console.log(posts)
   return (
     <PageLayout>
       {posts.map((post, index) => (
@@ -21,7 +20,6 @@ const client = createClient({
 
 export const getStaticProps: GetStaticProps<{ posts: any[] }> = async () => {
   const posts = await client.fetch(`*[_type == "post"]`)
-  console.log('post', posts)
   return {
     props: {
       posts,
