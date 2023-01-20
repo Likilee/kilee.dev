@@ -14,3 +14,15 @@ html {
   flex-direction: column;
   min-height: 100vh;
 }
+
+/* ✅ Code Block highlighting */
+@import 'styles/hightlightjs-panda-syntax-mix.css';
+
+.prose pre {
+  @apply bg-gray-100 dark:bg-gray-900 border border-gray-200 dark:border-gray-700
+}
+
+code[class*='language-'],
+pre[class*='language-'] {
+  @apply text-gray-800 dark:text-gray-50;
+}

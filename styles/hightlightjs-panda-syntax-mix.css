@@ -1,0 +1,96 @@
+/**
+ * Panda Syntax Theme for Highlight.js
+ * Based on: https://github.com/tinkertrain/panda-syntax-vscode
+ * Author: Annmarie Switzer <https://github.com/annmarie-switzer>
+ * Editor : Kilee <https://github.com/Likilee>
+ * 🐼-dark&light mix with tailwindcss
+ */
+w
+.hljs {
+  @apply text-[#2a2c2d] dark:text-[#e6e6e6];
+  /* background: #e6e6e6 ; */
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
+
+.hljs-link {
+  text-decoration: underline;
+}
+
+.hljs-comment,
+.hljs-quote {
+  @apply text-[#676B79] dark:text-[#bbbbbb];
+  font-style: italic;
+}
+
+.hljs-params {
+  @apply text-[#676B79] dark:text-[#bbbbbb];
+}
+
+.hljs-punctuation,
+.hljs-attr {
+  @apply text-[#2a2c2d] dark:text-[#e6e6e6];
+}
+
+.hljs-selector-tag,
+.hljs-name,
+.hljs-meta,
+.hljs-operator,
+.hljs-char.escape_ {
+  @apply text-[#c56200] dark:text-[#b084eb];
+}
+
+.hljs-keyword,
+.hljs-deletion {
+  @apply text-[#d92792] dark:text-[#ff75b5];
+}
+
+.hljs-regexp,
+.hljs-selector-pseudo,
+.hljs-selector-attr,
+.hljs-variable.language_ {
+  @apply text-[#cc5e91] dark:text-[#ff9ac1];
+}
+
+.hljs-subst,
+.hljs-property,
+.hljs-code,
+.hljs-formula,
+.hljs-section,
+.hljs-title.function_ {
+  @apply text-[#3787c7] dark:text-[#45a9f9];
+}
+
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition,
+.hljs-selector-class,
+.hljs-title.class_,
+.hljs-title.class_.inherited__,
+.hljs-meta .hljs-string {
+  @apply text-[#0d7d6c] dark:text-[#19f9d8];
+}
+
+.hljs-variable,
+.hljs-template-variable,
+.hljs-number,
+.hljs-literal,
+.hljs-type,
+.hljs-link,
+.hljs-built_in,
+.hljs-title,
+.hljs-selector-id,
+.hljs-tag,
+.hljs-doctag,
+.hljs-attribute,
+.hljs-template-tag,
+.hljs-meta .hljs-keyword {
+  @apply text-[#7641bb] dark:text-[#ffb86c];
+}
