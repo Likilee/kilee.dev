@@ -5,10 +5,6 @@ import BaseLayout from 'layouts/BaseLayout'
 import localFont from '@next/font/local'
 import cn from 'classnames'
 
-if (process.env.NEXT_PUBLIC_API_MOCKING === 'enabled') {
-  await import('../mocks')
-}
-
 const suitVariable = localFont({
   src: '../public/font/SUITE-Variable.woff2',
   variable: '--font-suite',
