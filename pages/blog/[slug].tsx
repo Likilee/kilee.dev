@@ -17,7 +17,7 @@ export default function PostPage({ post }: InferGetStaticPropsType<typeof getSta
     <PageLayout>
       <div>{title}</div>
       <div>{date}</div>
-      <article className="prose prose-slate md:prose-lg dark:prose-invert">
+      <article className="prose prose-slate md:prose-lg dark:prose-invert w-full">
         <Component />
       </article>
     </PageLayout>
