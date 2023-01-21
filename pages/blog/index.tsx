@@ -1,7 +1,6 @@
 import { BlogPost } from 'components/BlogPost'
 import { GetStaticProps, InferGetServerSidePropsType } from 'next'
 import PageLayout from 'layouts/PageLayout'
-import { getAllSlugs } from 'lib/files'
 import { Post } from 'lib/types'
 import { sanityClient } from 'lib/sanity'
 import { allPostQuery } from 'lib/sanity-query'
