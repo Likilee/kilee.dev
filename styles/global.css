@@ -17,7 +17,7 @@ html {
   word-break: keep-all;
 }
 
-/* ✅ Code Block highlighting */
+/* 🖌️ Code Block highlighting */
 @import 'styles/hightlightjs-panda-syntax-mix.css';
 
 .prose pre {
