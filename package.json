@@ -45,6 +45,7 @@
     "autoprefixer": "^10.4.13",
     "esbuild": "^0.16.17",
     "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-storybook": "^0.6.8",
     "jsdom": "^21.0.0",
     "mdx-bundler": "^9.2.1",
