@@ -3,6 +3,7 @@ import { usePathname } from 'next/navigation'
 import cn from 'classnames'
 import ThemeToggle from '../ThemeToggle/ThemeToggle'
 import MobileNavMenu from 'components/MobileNavMenu'
+import { isSameFirstPath } from 'lib/path'
 
 interface NavItemProps {
   href: string
@@ -11,7 +12,7 @@ interface NavItemProps {
 
 function NavItem({ href, text }: NavItemProps) {
   const path = usePathname()
-  const isActive = path === href
+  const isActive = isSameFirstPath(path ?? '', href);
 
   return (
     <Link
