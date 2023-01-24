@@ -1,11 +1,12 @@
 import { GetStaticPaths, GetStaticPropsContext, InferGetStaticPropsType } from 'next'
 import { useMemo } from 'react'
 import { getMDXComponent } from 'mdx-bundler/client'
-import {  mdxToHtml } from 'lib/mdx'
+import { mdxToHtml } from 'lib/mdx'
 import { Post } from 'lib/types'
 import { sanityClient } from 'lib/sanity'
 import { allPostQuery } from 'lib/sanity-query'
 import PageLayout from 'layouts/PageLayout'
+import PostLayout from 'layouts/PostLayout'
 
 export default function PostPage({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
   const { content, title, date } = post
@@ -13,11 +14,9 @@ export default function PostPage({ post }: InferGetStaticPropsType<typeof getSta
 
   return (
     <PageLayout>
-      <div>{title}</div>
-      <div>{date}</div>
-      <article className="prose prose-slate md:prose-lg dark:prose-invert w-full">
+      <PostLayout post={post}>
         <Component />
-      </article>
+      </PostLayout>
     </PageLayout>
   )
 }
@@ -33,20 +32,20 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps = async ({ params }: GetStaticPropsContext<{ slug: string }>) => {
   if (!params) throw new Error('No Params In this page')
 
-  const posts: Post[] = await sanityClient.fetch(allPostQuery);
-  const post = posts.find(({slug}) => params.slug === slug );
+  const posts: Post[] = await sanityClient.fetch(allPostQuery)
+  const post = posts.find(({ slug }) => params.slug === slug)
 
   if (!post) {
     return { notFound: true }
   }
-  const { code } = await mdxToHtml(post.content);
+  const { code } = await mdxToHtml(post.content)
 
   return {
     props: {
       post: {
         ...post,
         content: code,
-      }
+      },
     },
   }
 }

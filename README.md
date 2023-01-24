@@ -1,5 +1,5 @@
 # Dev Kilee
-> 개발자 kilee의 Jam Stack Site 프로젝트.
+> 개발자 kilee의 Site 레포지토리
 
 ## 실행
 ```shell
@@ -10,23 +10,24 @@ $ yarn build && yarn start
 ## 사용
 - Next.js
 
-## 기능
+## **기능**
 
 ### Stage1
-- [ ] Page Layout
-- [ ] Dark Theme
-- [ ] Pc ↔️ Mobile 반응형
-- [ ] Self host font
+- [x] Page Layout
+- [x] Dark Theme
+- [x] Pc ↔️ Mobile 반응형
+- [x] Self host font
 - [ ] Blog
   - [ ] SSG(Static Site generation)
-  - [ ] 한글 Slug
-  - [ ] Extended markdown
+  - [x] 한글 Slug
+  - [x] Extended markdown
   - [ ] Code block 하이라이트
   - [ ] 블로그 view count
   - [ ] 댓글
   - [ ] Seo 최적화
 - [ ] Resume
   - [ ] PDF export 기능
+
 
 ### Stage2
 - [ ] Editor
@@ -37,6 +38,11 @@ $ yarn build && yarn start
 ## 구현
 
 ## 트러블 슈팅
+
+- Variable font 의 font weight이 가변적으로 적용되지 않고, 100,350 등 일반 폰트처럼 동작하는 문제
+- Posting 내의 코드 블럭 syntax highlighting에 테마 적용
+- External link ref 에 noopener norefernece 를 통해 보안 및 퍼포먼스 강화
+-
 
 ## 학습 로그
 

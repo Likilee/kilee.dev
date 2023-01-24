@@ -1,0 +1,46 @@
+import { Post } from 'lib/types'
+import Image from 'next/image'
+import { PropsWithChildren } from 'react'
+import avatar from 'public/avatar.jpg'
+import { format, parseISO } from 'date-fns'
+
+type Props = {
+  post: Post
+}
+
+export default function PostLayout({ post, children }: PropsWithChildren<Props>) {
+  return (
+    <article>
+      <h1 className="mb-4 text-3xl font-bold tracking-tight text-black md:text-5xl dark:text-white">
+        {post.title}
+      </h1>
+      <div className="flex flex-col items-start md:flex-row justify-between">
+        <div className="flex flex-row gap-2">
+          <Image
+            src={avatar}
+            alt="Picture of the author"
+            width={24}
+            height={24}
+            sizes="20vw"
+            className="rounded-full"
+          />
+          <p className="text-sm text-gray-700 dark:text-gray-300">
+            {`Kilee / `}
+            {format(parseISO(post.date), 'MMMM dd, yyyy')}
+          </p>
+        </div>
+        <div>
+          <p className="text-sm text-gray-700 dark:text-gray-300">
+            {`reading time`}
+            {` • `}
+            {`1000 views`}
+          </p>
+        </div>
+      </div>
+      {/* 아바타, 저자명, 작성일 */}
+      <div className="mt-4 prose prose-slate md:prose-lg dark:prose-invert w-full">
+        {children}
+      </div>
+    </article>
+  )
+}
