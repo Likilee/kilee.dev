@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { PropsWithChildren } from 'react'
 import avatar from 'public/avatar.jpg'
 import { format, parseISO } from 'date-fns'
+import cn from 'classnames'
 
 type Props = {
   post: Post
@@ -10,7 +11,12 @@ type Props = {
 
 export default function PostLayout({ post, children }: PropsWithChildren<Props>) {
   return (
-    <article>
+    <article
+      className={cn(
+        'flex flex-col justify-center items-start', // flex
+        'max-w-2xl mx-auto mb-16 w-full', // size & spacing
+      )}
+    >
       <h1 className="mb-4 text-3xl font-bold tracking-tight text-black md:text-5xl dark:text-white">
         {post.title}
       </h1>
@@ -38,7 +44,7 @@ export default function PostLayout({ post, children }: PropsWithChildren<Props>)
         </div>
       </div>
       {/* 아바타, 저자명, 작성일 */}
-      <div className="mt-4 prose prose-slate md:prose-lg dark:prose-invert w-full">
+      <div className="mt-4 prose prose-slate md:prose-lg dark:prose-invert w-full max-w-none">
         {children}
       </div>
     </article>

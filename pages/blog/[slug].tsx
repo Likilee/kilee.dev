@@ -5,7 +5,6 @@ import { mdxToHtml } from 'lib/mdx'
 import { Post } from 'lib/types'
 import { sanityClient } from 'lib/sanity'
 import { allPostQuery } from 'lib/sanity-query'
-import PageLayout from 'layouts/PageLayout'
 import PostLayout from 'layouts/PostLayout'
 
 export default function PostPage({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
@@ -13,11 +12,9 @@ export default function PostPage({ post }: InferGetStaticPropsType<typeof getSta
   const Component = useMemo(() => getMDXComponent(content), [content])
 
   return (
-    <PageLayout>
-      <PostLayout post={post}>
-        <Component />
-      </PostLayout>
-    </PageLayout>
+    <PostLayout post={post}>
+      <Component />
+    </PostLayout>
   )
 }
 
@@ -45,7 +42,7 @@ export const getStaticProps = async ({ params }: GetStaticPropsContext<{ slug: s
       post: {
         ...post,
         content: code,
-        readingTime: readTime
+        readingTime: readTime,
       },
     },
   }
