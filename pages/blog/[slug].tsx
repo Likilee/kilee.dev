@@ -38,13 +38,14 @@ export const getStaticProps = async ({ params }: GetStaticPropsContext<{ slug: s
   if (!post) {
     return { notFound: true }
   }
-  const { code } = await mdxToHtml(post.content)
+  const { code, readTime } = await mdxToHtml(post.content)
 
   return {
     props: {
       post: {
         ...post,
         content: code,
+        readingTime: readTime
       },
     },
   }

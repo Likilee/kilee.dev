@@ -1,17 +1,9 @@
-import { readFileSync } from "fs"
-import { POST_DIR } from "lib/files"
 import { bundleMDX } from "mdx-bundler";
-import path from "path"
+import readingTime from "reading-time";
 import rehypeHighlight from "rehype-highlight";
 
-export const getMDXSourceFromLocal = (fileName: string) => {
-  const filePath = path.join(POST_DIR, fileName);
-  const mdxSource = readFileSync(filePath, 'utf-8');
-  return mdxSource;
-}
-
 type MDXtoHtmlFn = {
-  (mdxSource: string): Promise<{code: string}>
+  (mdxSource: string): Promise<{code: string, readTime: string}>
 }
 
 export const mdxToHtml: MDXtoHtmlFn = async (mdxSource: string) => {
@@ -19,5 +11,7 @@ export const mdxToHtml: MDXtoHtmlFn = async (mdxSource: string) => {
     options.rehypePlugins = [...(options.rehypePlugins ?? []), rehypeHighlight];
     return options;
   }})
-  return { code }
+  const readTime = readingTime(mdxSource).text;
+
+  return { code, readTime }
 }

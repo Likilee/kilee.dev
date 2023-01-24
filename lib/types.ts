@@ -5,7 +5,7 @@ export type Post = {
   title: string
   excerpt: string
   date: string
+  readingTime: string
   // coverImage: string
-  // readingTime: string
   // tweets: any[]
 }

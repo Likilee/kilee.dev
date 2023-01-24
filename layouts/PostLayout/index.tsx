@@ -14,8 +14,8 @@ export default function PostLayout({ post, children }: PropsWithChildren<Props>)
       <h1 className="mb-4 text-3xl font-bold tracking-tight text-black md:text-5xl dark:text-white">
         {post.title}
       </h1>
-      <div className="flex flex-col items-start md:flex-row justify-between">
-        <div className="flex flex-row gap-2">
+      <div className="flex flex-col items-start justify-between md:flex-row md:items-center w-full gap-1">
+        <div className="flex flex-row gap-2 items-center">
           <Image
             src={avatar}
             alt="Picture of the author"
@@ -31,9 +31,9 @@ export default function PostLayout({ post, children }: PropsWithChildren<Props>)
         </div>
         <div>
           <p className="text-sm text-gray-700 dark:text-gray-300">
-            {`reading time`}
-            {` • `}
-            {`1000 views`}
+            {post.readingTime}
+            {/* {` • `}
+            {`1000 views`} */}
           </p>
         </div>
       </div>

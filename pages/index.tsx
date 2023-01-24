@@ -6,8 +6,8 @@ export default function Home({ posts }: InferGetServerSidePropsType<typeof getSt
   return (
     <PageLayout>
       <div>
-      <h1 className="mb-1 text-3xl font-bold tracking-tight  md:text-5xl">
-       <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">Kilee</span>
+      <h1 className="mb-1 text-3xl font-bold tracking-tight md:text-5xl">
+       <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-blue-700">Kilee</span>
       </h1>
       <h2 className="mb-4">
         Frontend Developer
