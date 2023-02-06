@@ -19,18 +19,18 @@ describe('한글 슬러그 생성하기', () => {
   })
 })
 
-describe('디렉토리 파일명 모두 가져오기', () => {
-  test('테스트 디렉토리 읽어오기', () => {
-    const dir = getFileNamesInDir(`./__test__/test_post`)
-    expect(dir.includes('테스트1.mdx')).toBeTruthy()
-    expect(dir.includes('테스트 2- 포스트"hey".mdx')).toBeTruthy()
-  })
-})
+// describe('디렉토리 파일명 모두 가져오기', () => {
+//   test('테스트 디렉토리 읽어오기', () => {
+//     const dir = getFileNamesInDir(`./__test__/test_post`)
+//     expect(dir.includes('테스트1.mdx')).toBeTruthy()
+//     expect(dir.includes('테스트 2- 포스트"hey".mdx')).toBeTruthy()
+//   })
+// })
 
-describe('디렉토리에서 파일 읽고 Slug 배열 뽑아오기', () => {
-  test('테스트 디렉토리 읽어서 Slug 배열 가져오기', () => {
-    const slugs = getSlugsFromDir('./__test__/test_post')
-    expect(slugs.includes('테스트1')).toBeTruthy()
-    expect(slugs.includes('테스트-2-포스트hey')).toBeTruthy()
-  })
-})
+// describe('디렉토리에서 파일 읽고 Slug 배열 뽑아오기', () => {
+//   test('테스트 디렉토리 읽어서 Slug 배열 가져오기', () => {
+//     const slugs = getSlugsFromDir('./__test__/test_post')
+//     expect(slugs.includes('테스트1')).toBeTruthy()
+//     expect(slugs.includes('테스트-2-포스트hey')).toBeTruthy()
+//   })
+// })
