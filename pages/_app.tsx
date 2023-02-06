@@ -8,7 +8,7 @@ import cn from 'classnames'
 const pretendardVaribale = localFont({
   src: '../public/font/PretendardKR-VF-distilled.woff2',
   variable: '--font-pretendard',
-  weight: '45 1000'
+  weight: '45 1000',
 })
 
 export default function App({ Component, pageProps }: AppProps) {

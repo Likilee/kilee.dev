@@ -12,7 +12,7 @@ interface NavItemProps {
 
 function NavItem({ href, text }: NavItemProps) {
   const path = usePathname()
-  const isActive = isSameFirstPath(path ?? '', href);
+  const isActive = isSameFirstPath(path ?? '', href)
 
   return (
     <Link

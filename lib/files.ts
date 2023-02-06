@@ -3,8 +3,8 @@ import { readdirSync } from 'fs'
 import path from 'path'
 import { cwd } from 'process'
 
-const ROOT = cwd();
-export const POST_DIR = path.join(ROOT, '__posts');
+const ROOT = cwd()
+export const POST_DIR = path.join(ROOT, '__posts')
 
 export const getSlug = (title: string) => cjkSlug(title)
 
@@ -14,7 +14,7 @@ export const getFileNamesInDir = (path: string) => {
 }
 
 export const getAllFileNames = () => {
-  return getFileNamesInDir(POST_DIR);
+  return getFileNamesInDir(POST_DIR)
 }
 
 export const getSlugsFromDir = (path: string) => {
@@ -23,5 +23,5 @@ export const getSlugsFromDir = (path: string) => {
 }
 
 export const getAllSlugs = () => {
-  return getSlugsFromDir(POST_DIR);
+  return getSlugsFromDir(POST_DIR)
 }
