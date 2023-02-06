@@ -1,6 +1,6 @@
 import '../styles/global.css'
 import './base.css'
-import { WithTheme, withTheme, withThemeProvider } from './withTheme'
+import { withTheme } from './withTheme'
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
