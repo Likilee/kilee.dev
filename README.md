@@ -3,7 +3,7 @@
 
 ## 실행
 ```shell
-$ yarn install
+$ yarn
 $ yarn build && yarn start
 ```
 [`localhost:3000`](http://localhost:3000/) 실행
