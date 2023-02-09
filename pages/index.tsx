@@ -1,8 +1,6 @@
 import PageLayout from 'layouts/PageLayout'
-import { GetStaticProps, InferGetServerSidePropsType } from 'next'
-import { createClient } from 'next-sanity'
 
-export default function Home({ posts }: InferGetServerSidePropsType<typeof getStaticProps>) {
+export default function Home() {
   return (
     <PageLayout>
       <div>
@@ -19,19 +17,4 @@ export default function Home({ posts }: InferGetServerSidePropsType<typeof getSt
       </div>
     </PageLayout>
   )
-}
-
-const client = createClient({
-  projectId: '5sui7roq',
-  dataset: 'production',
-  useCdn: true,
-})
-
-export const getStaticProps: GetStaticProps<{ posts: any[] }> = async () => {
-  const posts = await client.fetch(`*[_type == "post"]`)
-  return {
-    props: {
-      posts,
-    },
-  }
 }
