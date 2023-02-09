@@ -1,10 +1,10 @@
 import cjkSlug from 'cjk-slug'
-import { readdirSync } from 'fs'
-import path from 'path'
+import { readdirSync, readFileSync } from 'fs'
+import { join } from 'path'
 import { cwd } from 'process'
 
 const ROOT = cwd()
-export const POST_DIR = path.join(ROOT, '__posts')
+export const CONTENTS_DIR = join(ROOT, process.env.CONTENTS_DIR || '__contents')
 
 export const getSlug = (title: string) => cjkSlug(title)
 
@@ -12,16 +12,33 @@ export const getFileNamesInDir = (path: string) => {
   const files = readdirSync(path)
   return files
 }
+const removeExtension = (src: string) => src.replace(/\.(mdx|md)/, '')
 
 export const getAllFileNames = () => {
-  return getFileNamesInDir(POST_DIR)
+  return getFileNamesInDir(CONTENTS_DIR)
 }
 
 export const getSlugsFromDir = (path: string) => {
   const files = getFileNamesInDir(path)
-  return files.map((file) => file.replace(/\.(mdx|md)/, '')).map(getSlug)
+  return files.map((file) => removeExtension(file)).map(getSlug)
+}
+
+export const getFileWithSlug = (slug: string, path: string = CONTENTS_DIR) => {
+  const files = getFileNamesInDir(path)
+
+  const file = files.filter((file) => getSlug(removeExtension(file)) === slug)[0] || null
+  if (!file) throw new Error({ statusCode: 404, title: 'No matching slug content' })
+  return file
 }
 
 export const getAllSlugs = () => {
-  return getSlugsFromDir(POST_DIR)
+  return getSlugsFromDir(CONTENTS_DIR)
+}
+
+export const getContentBySlug = (slug: string, path: string = CONTENTS_DIR) => {
+  const fileName = getFileWithSlug(slug, path)
+
+  const content = readFileSync(join(path, fileName), 'utf-8')
+  console.log(content)
+  return content
 }
