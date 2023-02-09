@@ -1,10 +1,10 @@
 import cn from 'classnames'
-import type { Post } from 'lib/types'
+import { Post } from 'contentlayer/generated'
 import Link from 'next/link'
 
-type Props = Pick<Post, 'slug' | 'title' | 'content' | 'excerpt'>
+type Props = Pick<Post, 'slug' | 'title' | 'date' | 'summary'>
 
-export function BlogPost({ slug, title, content, excerpt }: Props) {
+export function BlogPost({ slug, title, summary }: Props) {
   return (
     <Link className="w-full" href={`blog/${slug}`}>
       <article className="w-full mb-8">
@@ -23,10 +23,10 @@ export function BlogPost({ slug, title, content, excerpt }: Props) {
               'text-gray-500 ', // font
             )}
           >
-            0 views
+            - views
           </p>
         </div>
-        <p className={cn('text-gray-600 dark:text-gray-400')}>{excerpt}</p>
+        <p className={cn('text-gray-600 dark:text-gray-400')}>{summary}</p>
       </article>
     </Link>
   )

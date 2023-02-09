@@ -1,11 +1,12 @@
 import { BlogPost } from 'components/BlogPost'
 import { GetStaticProps, InferGetServerSidePropsType } from 'next'
 import PageLayout from 'layouts/PageLayout'
-import { Post } from 'lib/types'
-import { sanityClient } from 'lib/sanity'
-import { allPostQuery } from 'lib/sanity-query'
+import { allPosts, Post } from 'contentlayer/generated'
+import { compareDesc } from 'date-fns'
 
 export default function Blog({ posts }: InferGetServerSidePropsType<typeof getStaticProps>) {
+  // useLiveReload() // 🛠️this only runs during development and has no impact on production
+
   return (
     <PageLayout>
       <h1 className="mb-4 text-3xl font-bold tracking-tight text-black md:text-5xl dark:text-white ">
@@ -17,15 +18,18 @@ export default function Blog({ posts }: InferGetServerSidePropsType<typeof getSt
       <h3 className="mt-8 mb-4 text-2xl font-bold tracking-tight text-black md:text-4xl dark:text-white">
         All Posts
       </h3>
-      {posts.map(({ _id, slug, title, excerpt, content, date }) => (
-        <BlogPost key={_id} slug={slug} title={title} content={content} excerpt={excerpt} />
+      {posts.map(({ _id, slug, title, summary, date }) => (
+        <BlogPost key={_id} slug={slug} title={title} date={date} summary={summary} />
       ))}
     </PageLayout>
   )
 }
 
 export const getStaticProps: GetStaticProps<{ posts: Post[] }> = async () => {
-  const posts: Post[] = await sanityClient.fetch(allPostQuery)
+  // const posts: Post[] = await sanityClient.fetch(allPostQuery)
+  const posts = allPosts.sort((a, b) => {
+    return compareDesc(new Date(a.date), new Date(b.date))
+  })
 
   return {
     props: {

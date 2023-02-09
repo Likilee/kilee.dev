@@ -1,9 +1,9 @@
-import { Post } from 'lib/types'
 import Image from 'next/image'
 import { PropsWithChildren } from 'react'
 import avatar from 'public/avatar.jpg'
 import { format, parseISO } from 'date-fns'
 import cn from 'classnames'
+import { Post } from 'contentlayer/generated'
 
 type Props = {
   post: Post
@@ -37,7 +37,7 @@ export default function PostLayout({ post, children }: PropsWithChildren<Props>)
         </div>
         <div>
           <p className="text-sm text-gray-700 dark:text-gray-300">
-            {post.readingTime}
+            {post.readtime}
             {/* {` • `}
             {`1000 views`} */}
           </p>

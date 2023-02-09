@@ -18,14 +18,17 @@ $ yarn build && yarn start
 - [x] Pc ↔️ Mobile 반응형
 - [x] Self host font
 - [ ] Blog
-  - [ ] SSG(Static Site generation)
+  - [x] SSG(Static Site generation)
+  - [x] Repo에 포스팅 및 이미지 저장
   - [x] 한글 Slug
-  - [x] Extended markdown
-  - [ ] Code block 하이라이트
+  - [x] Extended markdown - gfm
+  - [x] Code block 하이라이트
   - [ ] 블로그 view count
   - [ ] 댓글
   - [ ] Seo 최적화
+  - [ ] Image 압축 Action
 - [ ] Resume
+  - [x] Resume 페이지
   - [ ] PDF export 기능
 
 
@@ -42,7 +45,7 @@ $ yarn build && yarn start
 - Variable font 의 font weight이 가변적으로 적용되지 않고, 100,350 등 일반 폰트처럼 동작하는 문제
 - Posting 내의 코드 블럭 syntax highlighting에 테마 적용
 - External link ref 에 noopener norefernece 를 통해 보안 및 퍼포먼스 강화
--
+- Safari 에서 특정 Regex가 동작하지 않는 이슈
 
 ## 학습 로그
 
