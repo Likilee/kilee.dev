@@ -5,6 +5,7 @@ import rehypeHighlight from 'rehype-highlight'
 import rehypeSlug from 'rehype-slug'
 import remarkGfm from 'remark-gfm'
 import { getSlug } from './lib/files'
+import rehypeImgSizeWithFullWidth from './lib/rehypeImgSizeWithFullWidth'
 
 const Post = defineDocumentType(() => ({
   name: 'Post',
@@ -47,6 +48,7 @@ export default makeSource({
     rehypePlugins: [
       rehypeHighlight,
       rehypeSlug,
+      rehypeImgSizeWithFullWidth,
       [
         rehypeAutolinkHeadings,
         {
