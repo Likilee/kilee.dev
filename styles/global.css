@@ -131,7 +131,7 @@ html {
 /* Fenced Code block - line hightlight */
 .prose code .line.line--highlighted {
   padding-left: calc(1rem - 2px);
-  @apply border-l-2 border-y-0 border-transparent border-blue-400 bg-gray-500 dark:border-blue-500 dark:bg-gray-800  bg-opacity-10
+  @apply border-l-2 border-y-0 border-transparent border-blue-400 bg-slate-400 dark:border-blue-500 dark:bg-gray-800  bg-opacity-10
 
 
 }

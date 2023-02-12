@@ -99,9 +99,9 @@ export default makeSource({
   mdx: {
     remarkPlugins: [remarkGfm],
     rehypePlugins: [
+      [rehypeUrlInspector, imgSrcUrlConvertOption], // 💡 You need to run the 'rehypeUrlInspector' plugin before the 'rehypeImgSizeWithFullWidth'
       rehypeImgSizeWithFullWidth, // 💡 A custom plugin to enhance <img> tags by adding size (width/height) attributes.
       rehypeSlug,
-      [rehypeUrlInspector, imgSrcUrlConvertOption],
       [rehypeAutolinkHeadings, autolinkHeadingOption],
       [rehypePrettyCode, prettyCodeOptions],
     ],
