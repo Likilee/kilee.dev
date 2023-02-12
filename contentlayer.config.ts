@@ -80,21 +80,16 @@ const prettyCodeOptions: Partial<PrettyCodeOptions> = {
     node.properties.className.push('line--highlighted')
   },
   onVisitHighlightedWord(node: any, id: string) {
-    if (!id) return
+    node.properties.className = ['word--highlighted']
 
-    /* 💡 In markdown:' ```ts /target1/#y /target2/#b ' will highlight all matched text yellow or blue*/
-    const backgroundColor = {
-      y: '#ff0',
-      b: 'dodgerblue',
-    }[id]
-
-    const color = {
-      y: 'black',
-      b: 'white',
-    }[id]
-
-    node.properties.className = ['word--highlighted', 'rounded', 'p-1']
-    node.properties.style = `background-color: ${backgroundColor}; color: ${color};`
+    if (id) {
+      /* 💡 In markdown:' ```ts /target1/#y /target2/#b ' will highlight all matched text yellow or blue*/
+      const colorClass = {
+        y: 'yellow',
+        b: 'blue',
+      }[id]
+      node.properties.className.push(colorClass)
+    }
   },
 }
 
