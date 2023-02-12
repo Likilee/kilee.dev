@@ -53,6 +53,22 @@ html {
   @apply visible;
 }
 
+/* 🖌️ todolist style */
+.prose .contains-task-list {
+  list-style-type: none;
+  text-indent: -2rem;
+}
+
+.prose .task-list-item p input[type="checkbox"] {
+  width: 1rem;
+  height: 1rem;
+  vertical-align: middle;
+  border: 1px solid #ccc;
+  border-radius: 0px;
+  margin-right: 0.5rem;
+  background-color: black
+}
+
 /* 🖌️ Code Block highlighting */
 @import 'styles/hightlightjs-panda-syntax-mix.css';
 
