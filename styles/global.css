@@ -20,12 +20,12 @@ html {
 
 /** 📝 Article's css **/
 
-/* 🖌️ Overide article start for prevent layout shift */
+/*  Overide article start for prevent layout shift */
 .prose > :first-child {
   margin-top: 1.25em !important;
 }
 
-/* 🖌️ for rehype-auto-heading */
+/*  for rehype-auto-heading */
 .prose .anchor {
   @apply absolute invisible no-underline;
 
@@ -53,14 +53,106 @@ html {
   @apply visible;
 }
 
-/* 🖌️ Code Block highlighting */
-@import 'styles/hightlightjs-panda-syntax-mix.css';
-
-.prose pre {
-  @apply bg-gray-100 dark:bg-gray-900 border border-gray-200 dark:border-gray-700
+/*  todolist style */
+.prose .contains-task-list {
+  list-style-type: none;
+  text-indent: -2rem;
 }
 
-code[class*='language-'],
-pre[class*='language-'] {
-  @apply text-gray-800 dark:text-gray-50;
+.prose .task-list-item p input[type="checkbox"] {
+  @apply w-[1.2rem] h-[1.2rem] align-middle mr-2
+}
+
+.prose pre {
+  @apply bg-gray-100 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 py-3 px-0
+}
+
+/* blockquote */
+.prose blockquote p::before,
+.prose blockquote p::after {
+  display: none;
+}
+
+/* 💻 Code block */
+
+/* pretty-code (shiki) recommend */
+.prose pre > code {
+  display: grid;
+}
+
+.prose pre::-webkit-scrollbar {
+  display: none;
+}
+
+/* Fenced Code block - display change on theme switching*/
+.light .prose pre[data-theme='dark'], .light .prose code[data-theme='dark'],
+.dark .prose pre[data-theme='light'], .dark .prose code[data-theme='light'],
+.light .prose div[data-rehype-pretty-code-title][data-theme='dark'],
+.dark .prose div[data-rehype-pretty-code-title][data-theme='light'] {
+  display: none;
+}
+
+/* Fenced Code block - with title style*/
+.prose div[data-rehype-pretty-code-title] {
+  @apply px-5 py-3 font-mono text-sm font-bold text-gray-800 bg-gray-200 border border-b-0 border-gray-200 rounded-t-lg dark:text-gray-200 dark:border-gray-700 dark:bg-gray-800;
+}
+.prose div[data-rehype-pretty-code-title] + pre {
+  @apply mt-0 rounded-t-none;
+}
+
+/* Fenced Code block - line number style */
+.prose code[data-line-numbers] {
+  counter-reset: line;
+}
+
+.prose code[data-line-numbers] > .line::before {
+  counter-increment: line;
+  content: counter(line);
+
+  display: inline-block;
+  width: 0.75rem;
+  margin-right: 2rem;
+  text-align: right;
+  color: gray;
+}
+
+.prose code[data-line-numbers-max-digits="2"] > .line::before {
+  width: 1.25rem;
+}
+.prose code[data-line-numbers-max-digits="3"] > .line::before {
+  width: 1.75rem;
+}
+
+/* Fenced Code block - line style */
+.prose pre code .line {
+  @apply inline-block px-4 py-0.5 leading-snug
+}
+
+/* Fenced Code block - line hightlight */
+.prose code .line.line--highlighted {
+  padding-left: calc(1rem - 2px);
+  @apply border-l-2 border-y-0 border-transparent border-blue-400 bg-slate-400 dark:border-blue-500 dark:bg-gray-800  bg-opacity-10
+
+
+}
+/* Fenced Code block - word highlight */
+.prose code .word--highlighted {
+  @apply rounded px-1 py-0.5 bg-opacity-25 bg-green-400
+}
+.prose code .word--highlighted.yellow {
+  @apply bg-yellow-400 bg-opacity-25
+}
+.prose code .word--highlighted.blue {
+  @apply bg-blue-400 bg-opacity-25
+}
+
+/*  inline code block backtick display: none */
+.prose :not(pre) > code::before,
+.prose :not(pre) > code::after {
+  display: none;
+}
+
+/*  inline code block style */
+.prose :not(pre) > code{
+  @apply bg-gray-100 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 font-mono text-sm font-normal align-middle py-1 px-1.5 rounded
 }
