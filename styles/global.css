@@ -60,8 +60,8 @@ html {
 }
 
 .prose .task-list-item p input[type="checkbox"] {
-  width: 1rem;
-  height: 1rem;
+  width: 1.2rem;
+  height: 1.2rem;
   vertical-align: middle;
   border: 1px solid #ccc;
   border-radius: 0px;
@@ -70,13 +70,35 @@ html {
 }
 
 /* 🖌️ Code Block highlighting */
-@import 'styles/hightlightjs-panda-syntax-mix.css';
+/* @import 'styles/hightlightjs-panda-syntax-mix.css'; */
 
 .prose pre {
   @apply bg-gray-100 dark:bg-gray-900 border border-gray-200 dark:border-gray-700
 }
 
-code[class*='language-'],
-pre[class*='language-'] {
-  @apply text-gray-800 dark:text-gray-50;
+/* 💡Code block - display change on theme switching*/
+.light .prose pre[data-theme='dark'], .light .prose code[data-theme='dark'],
+.dark .prose pre[data-theme='light'], .dark .prose code[data-theme='light'],
+.light .prose div[data-rehype-pretty-code-title][data-theme='dark'],
+.dark .prose div[data-rehype-pretty-code-title][data-theme='light'] {
+  display: none;
+}
+
+/* 💡Code block - with title style*/
+.prose div[data-rehype-pretty-code-title] {
+  @apply px-5 py-3 font-mono text-sm font-bold text-gray-800 bg-gray-200 border border-b-0 border-gray-200 rounded-t-lg dark:text-gray-200 dark:border-gray-700 dark:bg-gray-800;
+}
+.prose div[data-rehype-pretty-code-title] + pre {
+  @apply mt-0 rounded-t-none;
+}
+
+/* 💡 inline code block backtick display: none */
+.prose :not(pre) > code::before,
+.prose :not(pre) > code::after {
+  display: none;
+}
+
+/* 💡 inline code block style */
+.prose :not(pre) > code{
+  @apply bg-gray-100 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 py-1 px-1.5 rounded
 }
