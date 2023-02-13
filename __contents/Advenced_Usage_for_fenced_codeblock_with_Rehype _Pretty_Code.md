@@ -1,5 +1,5 @@
 ---
-title: Fenced Codeblock 을 고급 활용기능(feat.rehype-pretty-code)
+title: rehype-pretty-code Fenced Codeblock 고급 활용 
 date: 2023-02-11
 summary: Advenced Usage for fenced codeblock with Rehype Pretty Code
 ---
