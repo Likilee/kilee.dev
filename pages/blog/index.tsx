@@ -3,6 +3,7 @@ import { GetStaticProps, InferGetServerSidePropsType } from 'next'
 import PageLayout from 'layouts/PageLayout'
 import { allPosts, Post } from 'contentlayer/generated'
 import { compareDesc } from 'date-fns'
+import { getViewCountPrefetch } from 'hooks/api'
 
 export default function Blog({ posts }: InferGetServerSidePropsType<typeof getStaticProps>) {
   // useLiveReload() // 🛠️this only runs during development and has no impact on production
@@ -30,10 +31,12 @@ export const getStaticProps: GetStaticProps<{ posts: Post[] }> = async () => {
   const posts = allPosts.sort((a, b) => {
     return compareDesc(new Date(a.date), new Date(b.date))
   })
+  const dehydratedState = await getViewCountPrefetch()
 
   return {
     props: {
       posts,
+      dehydratedState,
     },
   }
 }

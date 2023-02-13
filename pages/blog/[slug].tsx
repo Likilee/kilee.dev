@@ -2,6 +2,7 @@ import { GetStaticPaths, GetStaticPropsContext, InferGetStaticPropsType } from '
 import PostLayout from 'layouts/PostLayout'
 import { allPosts } from 'contentlayer/generated'
 import Mdx from 'components/Mdx'
+import { getViewCountPrefetch } from 'hooks/api'
 
 export default function PostPage({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
   const {
@@ -25,7 +26,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps = async ({ params }: GetStaticPropsContext<{ slug: string }>) => {
   if (!params) throw new Error('No Params In this page')
   const post = allPosts.find((post) => post.slug === params.slug)
-
   if (!post) {
     return { notFound: true }
   }

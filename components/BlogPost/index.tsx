@@ -1,4 +1,5 @@
 import cn from 'classnames'
+import ViewCounter from 'components/ViewCounter'
 import { Post } from 'contentlayer/generated'
 import Link from 'next/link'
 
@@ -23,7 +24,7 @@ export function BlogPost({ slug, title, summary }: Props) {
               'text-gray-500 ', // font
             )}
           >
-            - views
+            <ViewCounter slug={slug} trackView={false} />
           </p>
         </div>
         <p className={cn('text-gray-600 dark:text-gray-400')}>{summary}</p>
