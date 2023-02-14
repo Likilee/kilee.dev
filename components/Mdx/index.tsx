@@ -7,7 +7,13 @@ interface MdxProps {
 }
 
 function RoundedImage(props: ImageProps) {
-  return <Image className="rounded-lg" {...props} alt={props.alt} />
+  return (
+    <Image
+      className="rounded-lg border border-gray-200 dark:border-gray-700"
+      {...props}
+      alt={props.alt}
+    />
+  )
 }
 
 function ImgToCustomImage(attrs: ImgHTMLAttributes<HTMLImageElement>) {

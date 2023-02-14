@@ -39,6 +39,18 @@ export const useViewCountMutation = () => {
   const queryClient = useQueryClient()
   return useMutation({
     mutationFn: postViewBySlug,
+    onMutate: async (slug) => {
+      await queryClient.cancelQueries({ queryKey: ['views'] })
+      const previousViews = queryClient.getQueryData<ViewsTable[]>(['views'])
+      const newViews = previousViews?.map((view) =>
+        view.slug === slug ? { slug, count: view.count } : view,
+      )
+      queryClient.setQueryData(['views'], () => newViews)
+      return { previousViews }
+    },
+    onError: (err, newViews, context) => {
+      queryClient.setQueryData(['views'], context?.previousViews)
+    },
     onSettled: () => {
       queryClient.invalidateQueries({ queryKey: ['views'] })
     },

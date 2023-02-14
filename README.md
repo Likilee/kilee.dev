@@ -20,13 +20,12 @@ $ yarn build && yarn start
 - [ ] Blog
   - [x] SSG(Static Site generation)
   - [x] Repo에 포스팅 및 이미지 저장
-  - [x] 한글 Slug
   - [x] Extended markdown - gfm
   - [x] Code block 하이라이트
-  - [ ] 블로그 view count
+  - [X] 블로그 view count
   - [ ] 댓글
   - [ ] Seo 최적화
-  - [ ] Image 압축 Action
+  - [X] Image 압축 Action
 - [ ] Resume
   - [x] Resume 페이지
   - [ ] PDF export 기능
