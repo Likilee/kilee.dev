@@ -1,5 +1,3 @@
-'use client'
-
 import 'styles/global.css'
 import type { AppProps } from 'next/app'
 import { ThemeProvider } from 'next-themes'
@@ -10,8 +8,10 @@ import cn from 'classnames'
 const pretendardVaribale = localFont({
   src: '../public/font/PretendardKR-VF-distilled.woff2',
   variable: '--font-pretendard',
-  weight: '45 1000',
+  weight: '45 920',
+  display: 'swap',
   preload: false,
+  adjustFontFallback: 'Arial',
 })
 
 import { Hydrate, QueryClient, QueryClientProvider } from '@tanstack/react-query'
