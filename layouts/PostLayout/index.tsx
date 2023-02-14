@@ -4,6 +4,7 @@ import avatar from 'public/avatar.jpg'
 import { format, parseISO } from 'date-fns'
 import cn from 'classnames'
 import { Post } from 'contentlayer/generated'
+import ViewCounter from 'components/ViewCounter'
 
 type Props = {
   post: Post
@@ -35,12 +36,10 @@ export default function PostLayout({ post, children }: PropsWithChildren<Props>)
             {format(parseISO(post.date), 'MMMM dd, yyyy')}
           </p>
         </div>
-        <div>
-          <p className="text-sm text-gray-700 dark:text-gray-300">
-            {post.readtime}
-            {/* {` • `}
-            {`1000 views`} */}
-          </p>
+        <div className="text-sm text-gray-700 dark:text-gray-300">
+          {post.readtime}
+          {` • `}
+          <ViewCounter slug={post.slug} trackView />
         </div>
       </div>
       {/* 아바타, 저자명, 작성일 */}

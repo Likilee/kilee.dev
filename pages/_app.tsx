@@ -1,3 +1,5 @@
+'use client'
+
 import 'styles/global.css'
 import type { AppProps } from 'next/app'
 import { ThemeProvider } from 'next-themes'
@@ -12,14 +14,28 @@ const pretendardVaribale = localFont({
   preload: false,
 })
 
+import { Hydrate, QueryClient, QueryClientProvider } from '@tanstack/react-query'
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+    },
+  },
+})
+
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <ThemeProvider attribute="class">
-      <main className={cn(pretendardVaribale.variable, 'font-sans')}>
-        <BaseLayout>
-          <Component {...pageProps} />
-        </BaseLayout>
-      </main>
+      <QueryClientProvider client={queryClient}>
+        <Hydrate state={pageProps.dehydratedState}>
+          <main className={cn(pretendardVaribale.variable, 'font-sans')}>
+            <BaseLayout>
+              <Component {...pageProps} />
+            </BaseLayout>
+          </main>
+        </Hydrate>
+      </QueryClientProvider>
     </ThemeProvider>
   )
 }
