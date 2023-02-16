@@ -2,7 +2,7 @@ import { GetStaticPaths, GetStaticPropsContext, InferGetStaticPropsType } from '
 import PostLayout from 'layouts/PostLayout'
 import { allPosts } from 'contentlayer/generated'
 import Mdx from 'components/Mdx'
-import { getViewCountPrefetch } from 'hooks/api'
+import SeoHead from 'components/SeoHead'
 
 export default function PostPage({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
   const {
@@ -10,9 +10,17 @@ export default function PostPage({ post }: InferGetStaticPropsType<typeof getSta
   } = post
 
   return (
-    <PostLayout post={post}>
-      <Mdx code={code} />
-    </PostLayout>
+    <>
+      <SeoHead
+        title={post.title}
+        description={post.summary}
+        ogType="article"
+        date={new Date(post.date).toISOString()}
+      />
+      <PostLayout post={post}>
+        <Mdx code={code} />
+      </PostLayout>
+    </>
   )
 }
 

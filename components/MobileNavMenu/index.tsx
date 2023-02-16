@@ -41,7 +41,7 @@ export default function MobileNavMenu() {
   return (
     <>
       <button
-        className="ml-[-0.6rem] md:hidden w-10 h-10 bg-transparent transition-opacity relative"
+        className="ml-[-0.6rem] md:hidden w-10 h-10 bg-transparent transition-opacity relative "
         aria-label="Toggle menu"
         type="button"
         onClick={handleToggleMenu}
@@ -70,6 +70,7 @@ export default function MobileNavMenu() {
             'dark:bg-gray-900 bg-gray-50',
             'pb-1 pr-7',
             'left-0 top-24 h-[calc(100vh-6rem)] w-full',
+            'z-10',
             styles.menuBeforeRender,
             isMenuRendered && styles.menuRendered,
           )}

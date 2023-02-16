@@ -1,4 +1,5 @@
 import BorderedBadge from 'components/BorderedBadge'
+import SeoHead from 'components/SeoHead'
 import PageLayout from 'layouts/PageLayout'
 import { ComponentType, PropsWithChildren } from 'react'
 import { IconBaseProps } from 'react-icons/lib'
@@ -16,6 +17,11 @@ import {
 export default function Resume() {
   return (
     <PageLayout>
+      <SeoHead
+        title="이력서"
+        description="웹 프론트엔드 개발자 이기훈의 이력서입니다."
+        ogType="article"
+      />
       <h1 className="mb-4 text-3xl font-bold tracking-tight text-black md:text-5xl dark:text-white ">
         Resume
       </h1>
@@ -53,7 +59,7 @@ export default function Resume() {
             <p className="flex items-center gap-2">
               <TbPencil />
               {/* <ExternalLink href="https://kilee.io">https://kilee.io</ExternalLink> */}
-              <ExternalLink href="">블로그 공사 중</ExternalLink>
+              <ExternalLink href="https://kimmaster.dev">https://kimmaster.dev</ExternalLink>
             </p>
           </div>
         </section>
