@@ -8,12 +8,7 @@ const nextConfig = {
     return config
   },
   headers() {
-    return [
-      {
-        source: '/:path*',
-        headers: securityHeaders,
-      },
-    ]
+    return headers
   },
 }
 
@@ -65,5 +60,9 @@ const securityHeaders = [
     value: 'camera=(), microphone=(), geolocation=()',
   },
 ]
+
+const isProduction = process.env.NODE_ENV === 'production'
+const headers = []
+if (isProduction) headers.push({ source: '/:path*', headers: securityHeaders })
 
 module.exports = withContentlayer(nextConfig)

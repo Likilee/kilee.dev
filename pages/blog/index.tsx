@@ -4,12 +4,18 @@ import PageLayout from 'layouts/PageLayout'
 import { allPosts, Post } from 'contentlayer/generated'
 import { compareDesc } from 'date-fns'
 import { getViewCountPrefetch } from 'hooks/api'
+import SeoHead from 'components/SeoHead'
 
 export default function Blog({ posts }: InferGetServerSidePropsType<typeof getStaticProps>) {
   // useLiveReload() // 🛠️this only runs during development and has no impact on production
 
   return (
     <PageLayout>
+      <SeoHead
+        title="김마스터의 블로그"
+        description="더 나은 사용성을 UX를 위한 웹 프론트엔드 기술에 관심이 많은 개발자 김마스터입니다."
+        ogType="blog"
+      />
       <h1 className="mb-4 text-3xl font-bold tracking-tight text-black md:text-5xl dark:text-white ">
         {`Blog`}
       </h1>
