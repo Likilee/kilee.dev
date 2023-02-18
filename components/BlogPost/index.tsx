@@ -10,14 +10,14 @@ export function BlogPost({ slug, title, summary }: Props) {
     <Link className="w-full" href={`blog/${slug}`}>
       <article className="w-full mb-8">
         <div className="flex flex-col justify-between md:flex-row ">
-          <h4
+          <h3
             className={cn(
               'w-full mb-2', // size & spacing
               'text-lg md:text-xl font-medium text-gray-900 dark:text-gray-100', //font
             )}
           >
             {title}
-          </h4>
+          </h3>
           <p
             className={cn(
               'w-32 mb-4 md:mb-0 text-left md:text-right', // size & spacing
