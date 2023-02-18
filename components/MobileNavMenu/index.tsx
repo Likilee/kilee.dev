@@ -9,15 +9,16 @@ function MunuItem({
   delayMS,
   children,
 }: PropsWithChildren<{ show: boolean; delayMS: `${number}ms` }>) {
+  const tailwindDelayClass = `delay-[${delayMS}]`
   return (
     <li
       className={cn(
         'border-b border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100 text-sm font-semibold pb-4',
         'transition-{opacity, transform, width}',
+        tailwindDelayClass,
         styles.menuItemBeforeRender,
         show && styles.menuItemRendered,
       )}
-      style={{ transitionDelay: delayMS }}
     >
       {children}
     </li>
