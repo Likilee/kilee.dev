@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import { PropsWithChildren } from 'react'
-import avatar from 'public/kimmaster_48.png'
+import avatar from 'public/kimmaster.png'
 import { format, parseISO } from 'date-fns'
 import cn from 'classnames'
 import { Post } from 'contentlayer/generated'

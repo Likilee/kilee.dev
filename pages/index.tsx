@@ -1,7 +1,7 @@
 import SeoHead from 'components/SeoHead'
 import PageLayout from 'layouts/PageLayout'
 import Image from 'next/image'
-import avatar from 'public/kimmaster_256.png'
+import avatar from 'public/kimmaster.png'
 
 export default function Home() {
   const title = '김마스터 - 도전과 성장을 즐기는 웹 프론트엔드 개발자'
@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <PageLayout>
       <SeoHead title={title} description={description} ogType="blog" />
-      <div className="flex flex-col-reverse justify-between sm:flex-row items-start gap-4">
+      <div className="flex flex-col-reverse justify-between sm:flex-row items-start gap-4 sm:gap-6">
         <div className="w-full">
           <h1 className="mb-1 text-3xl font-bold tracking-tight md:text-5xl">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-blue-700 ">
@@ -24,15 +24,14 @@ export default function Home() {
             아내와 웨이크보드를 타고 지내요.
           </p>
         </div>
-        <div className="w-[80px] sm:w-[176px] relative mr-auto">
+        <div className="w-[80px] sm:w-[30vw] sm:max-w-[176px] mr-auto">
           <Image
             alt="Kim Master"
             height={176}
             width={176}
             src={avatar}
-            sizes="30vw"
             priority
-            className="rounded-2xl sm:rounded-3xl filter grayscale-[25%]"
+            className="rounded-full filter grayscale-[25%]"
           />
         </div>
       </div>
