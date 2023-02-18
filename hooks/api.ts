@@ -5,13 +5,8 @@ import {
   useQuery,
   useQueryClient,
 } from '@tanstack/react-query'
+import { getAllView, postViewBySlug } from 'lib/api'
 import { ViewsTable } from 'lib/planetscale'
-
-/* 💡 Get All View counts */
-const getAllView = async (): Promise<ViewsTable[]> => {
-  const res = await fetch(`/api/views`)
-  return res.json()
-}
 
 export const useAllViewCountQuery = () => {
   return useQuery({
@@ -28,12 +23,6 @@ export const getViewCountPrefetch = async () => {
 
   return dehydrate(queryClient)
 }
-
-/* 💡 Post View Count with slug */
-const postViewBySlug = (slug: string) =>
-  fetch(`/api/views/${slug}`, {
-    method: 'POST',
-  })
 
 export const useViewCountMutation = () => {
   const queryClient = useQueryClient()
