@@ -6,9 +6,10 @@ import { compareDesc } from 'date-fns'
 import { getViewCountPrefetch } from 'hooks/api'
 import SeoHead from 'components/SeoHead'
 
-export default function Blog({ posts }: InferGetServerSidePropsType<typeof getStaticProps>) {
+export default function Blog({
+  postMetas,
+}: InferGetServerSidePropsType<typeof getStaticProps>) {
   // useLiveReload() // 🛠️this only runs during development and has no impact on production
-
   return (
     <PageLayout>
       <SeoHead
@@ -25,23 +26,32 @@ export default function Blog({ posts }: InferGetServerSidePropsType<typeof getSt
       <h3 className="mt-8 mb-4 text-2xl font-bold tracking-tight text-black md:text-4xl dark:text-white">
         All Posts
       </h3>
-      {posts.map(({ _id, slug, title, summary, date }) => (
+      {postMetas.map(({ _id, slug, title, summary, date }) => (
         <BlogPost key={_id} slug={slug} title={title} date={date} summary={summary} />
       ))}
     </PageLayout>
   )
 }
 
-export const getStaticProps: GetStaticProps<{ posts: Post[] }> = async () => {
-  // const posts: Post[] = await sanityClient.fetch(allPostQuery)
-  const posts = allPosts.sort((a, b) => {
-    return compareDesc(new Date(a.date), new Date(b.date))
-  })
+export const getStaticProps: GetStaticProps<{
+  postMetas: Pick<Post, '_id' | 'slug' | 'title' | 'summary' | 'date'>[]
+}> = async () => {
+  const postMetas = allPosts
+    .map(({ _id, slug, title, summary, date }) => ({
+      _id,
+      slug,
+      title,
+      summary,
+      date,
+    }))
+    .sort((a, b) => {
+      return compareDesc(new Date(a.date), new Date(b.date))
+    })
   const dehydratedState = await getViewCountPrefetch()
 
   return {
     props: {
-      posts,
+      postMetas,
       dehydratedState,
     },
   }
