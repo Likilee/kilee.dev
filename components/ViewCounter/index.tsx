@@ -1,5 +1,6 @@
 import { useAllViewCountQuery, useViewCountMutation } from 'hooks/api'
 import { useEffect } from 'react'
+import { TbLoaderQuarter } from 'react-icons/tb'
 
 interface ViewCounterProps {
   slug: string
@@ -7,7 +8,7 @@ interface ViewCounterProps {
 }
 
 export default function ViewCounter({ slug, trackView }: ViewCounterProps) {
-  const { data } = useAllViewCountQuery()
+  const { data, isLoading } = useAllViewCountQuery()
   const viewsForSlug = data && data.find((view) => view.slug === slug)
   const views = new Number(viewsForSlug?.count || 0)
   const increaseViewForSlug = useViewCountMutation()
@@ -16,5 +17,12 @@ export default function ViewCounter({ slug, trackView }: ViewCounterProps) {
     if (trackView) increaseViewForSlug.mutate(slug)
   }, [slug])
 
-  return <span className="transition">{data ? `${views.toLocaleString()} views` : '​'}</span>
+  if (isLoading)
+    return (
+      <span>
+        <TbLoaderQuarter className="inline-block" /> views
+      </span>
+    )
+  else
+    return <span className="transition">{data ? `${views.toLocaleString()} views` : '​'}</span>
 }
