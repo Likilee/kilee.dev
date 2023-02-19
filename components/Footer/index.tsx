@@ -1,6 +1,7 @@
-import cn from 'classnames'
 import Link from 'next/link'
 import { PropsWithChildren } from 'react'
+import { TbBrandGithub, TbBrandLinkedin, TbBriefcase } from 'react-icons/tb'
+import cn from 'classnames'
 
 function ExternalLink({
   href,
@@ -23,43 +24,37 @@ export default function Footer() {
       )}
     >
       <hr className="w-full border-1 border-gray-200 dark:border-gray-800 mb-8"></hr>
-      <div className="w-full flex flex-row flex-wrap justify-between">
-        <div className="w-full max-w-[45%] sm:max-w-[30%]">
-          <Link className="text-gray-500 hover:text-gray-600 transition block mb-4" href="/">
-            Home
-          </Link>
-          <Link className="text-gray-500 hover:text-gray-600 transition block mb-4" href="/">
-            About
-          </Link>
-        </div>
-        <div className="w-full max-w-[45%] sm:max-w-[30%]">
-          <Link
-            className="text-gray-500 hover:text-gray-600 transition block mb-4"
-            href="/blog"
-          >
-            Blog
-          </Link>
-          <Link
-            className="text-gray-500 hover:text-gray-600 transition block mb-4"
-            href="/resume"
-          >
-            Resume
-          </Link>
-        </div>
-        <div className="w-full max-w-[45%] sm:max-w-[30%]">
-          <ExternalLink
-            className="text-gray-500 hover:text-gray-600 transition block mb-4"
-            href="https://github.com/Likilee"
-          >
-            Github
-          </ExternalLink>
-          <ExternalLink
-            className="text-gray-500 hover:text-gray-600 transition block mb-2"
-            href="https://github.com/Likilee"
-          >
-            LinkedIn
-          </ExternalLink>
-        </div>
+      <div className="w-full flex flex-wrap flex-col sm:flex-row justify-start gap-4">
+        <ExternalLink
+          className={cn(
+            'text-gray-500 hover:text-gray-600 dark:hover:text-gray-400 transition',
+            'flex flex-row items-center gap-1',
+          )}
+          href="https://github.com/Likilee"
+        >
+          <TbBrandGithub />
+          Github
+        </ExternalLink>
+        <ExternalLink
+          className={cn(
+            'text-gray-500 hover:text-gray-600 dark:hover:text-gray-400 transition',
+            'flex flex-row items-center gap-1',
+          )}
+          href="https://www.linkedin.com/in/kihoon-lee-8b6250232"
+        >
+          <TbBrandLinkedin />
+          LinkedIn
+        </ExternalLink>
+        <Link
+          className={cn(
+            'text-gray-500 hover:text-gray-600 dark:hover:text-gray-400 transition',
+            'flex flex-row items-center gap-1',
+          )}
+          href="/resume"
+        >
+          <TbBriefcase />
+          Resume
+        </Link>
       </div>
     </footer>
   )
