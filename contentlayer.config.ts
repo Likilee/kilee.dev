@@ -9,7 +9,6 @@ import { getSlug } from './lib/files'
 import rehypeImgSizeWithFullWidth from './lib/rehypeImgSizeWithFullWidth'
 import rehypeUrlInspector, { type Options as UrlInspectorOptions } from 'rehype-url-inspector'
 import rehypePrettyCode, { type Options as PrettyCodeOptions } from 'rehype-pretty-code'
-// @ts-ignore
 import rehypeFigure from 'rehype-figure'
 
 import { readFileSync } from 'fs'
