@@ -17,7 +17,6 @@ html {
   word-break: keep-all;
 }
 
-
 /** 📝 Article's css **/
 
 /*  Overide article start for prevent layout shift */
@@ -45,7 +44,7 @@ html {
 }
 
 .prose .anchor:after {
-  @apply text-gray-300 dark:text-gray-700 font-normal ;
+  @apply text-gray-300 dark:text-gray-700 font-normal;
   content: '#';
 }
 
@@ -59,12 +58,12 @@ html {
   text-indent: -2rem;
 }
 
-.prose .task-list-item p input[type="checkbox"] {
-  @apply w-[1.2rem] h-[1.2rem] align-middle mr-2
+.prose .task-list-item p input[type='checkbox'] {
+  @apply w-[1.2rem] h-[1.2rem] align-middle mr-2;
 }
 
 .prose pre {
-  @apply bg-gray-100 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 py-3 px-0
+  @apply bg-gray-100 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 py-3 px-0;
 }
 
 /* blockquote */
@@ -85,8 +84,10 @@ html {
 }
 
 /* Fenced Code block - display change on theme switching*/
-.light .prose pre[data-theme='dark'], .light .prose code[data-theme='dark'],
-.dark .prose pre[data-theme='light'], .dark .prose code[data-theme='light'],
+.light .prose pre[data-theme='dark'],
+.light .prose code[data-theme='dark'],
+.dark .prose pre[data-theme='light'],
+.dark .prose code[data-theme='light'],
 .light .prose div[data-rehype-pretty-code-title][data-theme='dark'],
 .dark .prose div[data-rehype-pretty-code-title][data-theme='light'] {
   display: none;
@@ -116,34 +117,32 @@ html {
   color: gray;
 }
 
-.prose code[data-line-numbers-max-digits="2"] > .line::before {
+.prose code[data-line-numbers-max-digits='2'] > .line::before {
   width: 1.25rem;
 }
-.prose code[data-line-numbers-max-digits="3"] > .line::before {
+.prose code[data-line-numbers-max-digits='3'] > .line::before {
   width: 1.75rem;
 }
 
 /* Fenced Code block - line style */
 .prose pre code .line {
-  @apply inline-block px-4 py-0.5 leading-snug
+  @apply inline-block px-4 py-0.5 leading-snug;
 }
 
 /* Fenced Code block - line hightlight */
 .prose code .line.line--highlighted {
   padding-left: calc(1rem - 2px);
-  @apply border-l-2 border-y-0 border-transparent border-blue-400 bg-slate-400 dark:border-blue-500 dark:bg-gray-800  bg-opacity-10
-
-
+  @apply border-l-2 border-y-0 border-transparent border-blue-400 bg-slate-400 dark:border-blue-500 dark:bg-gray-800  bg-opacity-10;
 }
 /* Fenced Code block - word highlight */
 .prose code .word--highlighted {
-  @apply rounded px-1 py-0.5 bg-opacity-25 bg-green-400
+  @apply rounded px-1 py-0.5 bg-opacity-25 bg-green-400;
 }
 .prose code .word--highlighted.yellow {
-  @apply bg-yellow-400 bg-opacity-25
+  @apply bg-yellow-400 bg-opacity-25;
 }
 .prose code .word--highlighted.blue {
-  @apply bg-blue-400 bg-opacity-25
+  @apply bg-blue-400 bg-opacity-25;
 }
 
 /*  inline code block backtick display: none */
@@ -153,6 +152,21 @@ html {
 }
 
 /*  inline code block style */
-.prose :not(pre) > code{
-  @apply bg-gray-100 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 font-mono text-sm font-normal align-middle py-1 px-1.5 rounded
+.prose :not(pre) > code {
+  @apply bg-gray-100 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 font-mono text-sm font-normal align-middle py-1 px-1.5 rounded;
+}
+
+/** 🖼️ image style **/
+
+/* image caption style */
+.prose .image-caption figcaption {
+  @apply text-center text-sm text-gray-500 dark:text-gray-400 italic;
+}
+
+.prose .image-caption figcaption::before {
+  content: '< ';
+}
+
+.prose .image-caption figcaption::after {
+  content: ' >';
 }

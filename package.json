@@ -38,6 +38,7 @@
     "react-icons": "^4.7.1",
     "reading-time": "^1.5.0",
     "rehype-autolink-headings": "^6.1.1",
+    "rehype-figure": "^1.0.1",
     "rehype-pretty-code": "^0.9.3",
     "rehype-slug": "^5.1.0",
     "rehype-url-inspector": "^2.0.2",

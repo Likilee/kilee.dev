@@ -9,6 +9,8 @@ import { getSlug } from './lib/files'
 import rehypeImgSizeWithFullWidth from './lib/rehypeImgSizeWithFullWidth'
 import rehypeUrlInspector, { type Options as UrlInspectorOptions } from 'rehype-url-inspector'
 import rehypePrettyCode, { type Options as PrettyCodeOptions } from 'rehype-pretty-code'
+import rehypeFigure from 'rehype-figure'
+
 import { readFileSync } from 'fs'
 
 const Post = defineDocumentType(() => ({
@@ -100,6 +102,7 @@ export default makeSource({
     remarkPlugins: [remarkGfm],
     rehypePlugins: [
       [rehypeUrlInspector, imgSrcUrlConvertOption], // 💡 You need to run the 'rehypeUrlInspector' plugin before the 'rehypeImgSizeWithFullWidth'
+      [rehypeFigure, { className: 'image-caption' }],
       rehypeImgSizeWithFullWidth, // 💡 A custom plugin to enhance <img> tags by adding size (width/height) attributes.
       rehypeSlug,
       [rehypeAutolinkHeadings, autolinkHeadingOption],
