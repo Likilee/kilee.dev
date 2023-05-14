@@ -3,7 +3,11 @@ import { ViewsTable } from 'lib/planetscale'
 /* 💡 Get All View counts */
 export const getAllView = async (): Promise<ViewsTable[]> => {
   const res = await fetch(`/api/views`)
-  return res.json()
+  if (res.ok) {
+    return res.json()
+  } else {
+    throw new Error(await res.text())
+  }
 }
 
 /* 💡 Post View Count with slug */

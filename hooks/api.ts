@@ -11,7 +11,7 @@ import { ViewsTable } from 'lib/planetscale'
 export const useAllViewCountQuery = () => {
   return useQuery({
     queryKey: ['views'],
-    queryFn: () => getAllView(),
+    queryFn: getAllView,
   })
 }
 

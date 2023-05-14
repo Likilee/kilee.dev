@@ -8,7 +8,7 @@ interface ViewCounterProps {
 }
 
 export default function ViewCounter({ slug, trackView }: ViewCounterProps) {
-  const { data, isLoading } = useAllViewCountQuery()
+  const { data, isLoading, isError } = useAllViewCountQuery()
   const viewsForSlug = data && data.find((view) => view.slug === slug)
   const views = new Number(viewsForSlug?.count || 0)
   const increaseViewForSlug = useViewCountMutation()
@@ -20,9 +20,10 @@ export default function ViewCounter({ slug, trackView }: ViewCounterProps) {
   if (isLoading)
     return (
       <span>
-        <TbLoaderQuarter className="inline-block" /> views
+        <TbLoaderQuarter className="inline-block animate-spin" /> views
       </span>
     )
+  else if (isError) return <span>​ - views </span>
   else
     return <span className="transition">{data ? `${views.toLocaleString()} views` : '​'}</span>
 }
