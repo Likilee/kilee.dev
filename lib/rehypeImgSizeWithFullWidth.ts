@@ -44,7 +44,7 @@ async function addMetadata(node: ImageNode): Promise<void> {
   if (!res || !res.width || !res.height)
     throw Error(`Invalid image with src "${node.properties.src}"`)
 
-  const FULL_WIDTH = Number(process.env.IMAGE_FULL_WIDTH) || 672
+  const FULL_WIDTH = Number(process.env.IMAGE_FULL_WIDTH) || 1024
   const ratio = FULL_WIDTH / res.width
 
   node.properties.width = Math.round(res.width * ratio)
