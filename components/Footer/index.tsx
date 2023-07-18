@@ -19,7 +19,7 @@ export default function Footer() {
   return (
     <footer
       className={cn(
-        'max-w-2xl mx-auto w-full mb-8',
+        'max-w-3xl mx-auto w-full mb-8',
         'flex flex-col justify-center items-start',
       )}
     >

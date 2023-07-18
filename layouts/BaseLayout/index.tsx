@@ -12,7 +12,7 @@ export default function BaseLayout(props: PropsWithChildren) {
       <main
         className={cn(
           'bg-gray-50 dark:bg-gray-900',
-          'flex flex-col justify-center px-8',
+          'flex flex-col justify-center px-4',
           'font-sans',
         )}
       >

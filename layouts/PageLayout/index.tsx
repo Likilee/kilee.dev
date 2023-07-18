@@ -6,7 +6,7 @@ export default function PageLayout({ children }: PropsWithChildren) {
     <div
       className={cn(
         'flex flex-col justify-center items-start', // flex
-        'max-w-2xl mx-auto mb-16 w-full', // size & spacing
+        'max-w-3xl mx-auto mb-16 w-full', // size & spacing
       )}
     >
       {children}

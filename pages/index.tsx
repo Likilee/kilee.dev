@@ -4,9 +4,9 @@ import Image from 'next/image'
 import avatar from 'public/kimmaster.png'
 
 export default function Home() {
-  const title = '김마스터 - 도전과 성장을 즐기는 웹 프론트엔드 개발자'
+  const title = 'Kilee - 한치 앞도 모르는 인생 좋아하는 것에 몰입하며 살테다.'
   const description =
-    '웹 프론트엔드 개발을 즐기며, 기술적인 도전과 함께 문제 해결에 집중하는 개발자, 김마스터의 블로그입니다.'
+    '클라이언트 개발을 즐기며, 문제 해결에 집중하는 개발자, Kilee의 블로그입니다.'
   return (
     <PageLayout>
       <SeoHead title={title} description={description} ogType="blog" />
@@ -14,19 +14,18 @@ export default function Home() {
         <div className="w-full">
           <h1 className="mb-1 text-3xl font-bold tracking-tight md:text-5xl">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-blue-700 ">
-              KIM MASTER
+              Kilee
             </span>
           </h1>
           <h2 className="mb-4">Frontend Developer</h2>
           <p className="text-gray-500 dark:text-gray-400">
-            좋은 습관을 많이 가진 괜찮은 개발자가 되고자해요. 새로운 기술을 익혀서 문제영역에
-            어떻게 적용할지를 고민하는 것이 즐거워요. 농구와 스포츠클라이밍을 좋아하고, 여름마다
-            아내와 웨이크보드를 타고 지내요.
+            좋은 습관을 많이 가진 괜찮은 개발자가 되고 싶어요. 새로운 기술을 익혀서 문제영역에
+            어떻게 적용할지를 고민하는 것이 즐거워요. 적극적이고 도전적인 사람들과 함께 일하는 것을 좋아하는 개발자 Kilee입니다.
           </p>
         </div>
         <div className="w-[80px] sm:w-[30vw] sm:max-w-[176px] mr-auto">
           <Image
-            alt="Kim Master"
+            alt="Kilee"
             height={176}
             width={176}
             src={avatar}

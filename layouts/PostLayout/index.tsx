@@ -15,7 +15,7 @@ export default function PostLayout({ post, children }: PropsWithChildren<Props>)
     <article
       className={cn(
         'flex flex-col justify-center items-start', // flex
-        'max-w-2xl mx-auto mb-16 w-full', // size & spacing
+        'max-w-3xl mx-auto mb-16 w-full', // size & spacing
       )}
     >
       <h1 className="mb-4 text-3xl font-bold tracking-tight text-black md:text-5xl dark:text-white">
