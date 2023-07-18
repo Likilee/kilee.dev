@@ -37,13 +37,10 @@ export const getStaticProps: GetStaticProps<{
   postMetas: Pick<Post, '_id' | 'slug' | 'title' | 'summary' | 'date'>[]
 }> = async () => {
   const postMetas = allPosts
-    .map(({ _id, slug, title, summary, date }) => ({
-      _id,
-      slug,
-      title,
-      summary,
-      date,
-    }))
+    .map((post) => {
+      const { _id, slug, title, summary, date } = structuredClone(post)
+      return { _id, slug, title, summary, date }
+    })
     .sort((a, b) => {
       return compareDesc(new Date(a.date), new Date(b.date))
     })

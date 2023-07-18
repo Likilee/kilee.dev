@@ -34,13 +34,29 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps = async ({ params }: GetStaticPropsContext<{ slug: string }>) => {
   if (!params) throw new Error('No Params In this page')
   const post = allPosts.find((post) => post.slug === params.slug)
+
   if (!post) {
     return { notFound: true }
   }
 
+  const {
+    slug,
+    title,
+    summary,
+    date,
+    readtime,
+    body: { code },
+  } = structuredClone(post)
   return {
     props: {
-      post,
+      post: {
+        slug,
+        title,
+        summary,
+        date,
+        readtime,
+        body: { code },
+      },
     },
   }
 }
