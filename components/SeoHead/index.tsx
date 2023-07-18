@@ -24,12 +24,12 @@ export default function SeoHead({
       <meta content={description} name="description" />
       <meta
         property="og:url"
-        content={`${process.env.SITE_URL || 'https://kimmaster.dev'}${router.asPath}`}
+        content={`${process.env.SITE_URL || 'https://kilee.dev'}${router.asPath}`}
       />
       <meta property="og:site_name" content="Kilee" />
       <link
         rel="canonical"
-        href={`${process.env.SITE_URL || 'https://kimmaster.dev'}${router.asPath}`}
+        href={`${process.env.SITE_URL || 'https://kilee.dev'}${router.asPath}`}
       />
       <meta property="og:title" content={`${title} | Kilee`} />
       <meta property="og:type" content={ogType} />
