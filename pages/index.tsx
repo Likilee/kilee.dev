@@ -20,7 +20,8 @@ export default function Home() {
           <h2 className="mb-4">Frontend Developer</h2>
           <p className="text-gray-500 dark:text-gray-400">
             좋은 습관을 많이 가진 괜찮은 개발자가 되고 싶어요. 새로운 기술을 익혀서 문제영역에
-            어떻게 적용할지를 고민하는 것이 즐거워요. 적극적이고 도전적인 사람들과 함께 일하는 것을 좋아하는 개발자 Kilee입니다.
+            어떻게 적용할지를 고민하는 것이 즐거워요. 적극적이고 도전적인 사람들과 함께 일하는
+            것을 좋아하는 개발자 Kilee입니다.
           </p>
         </div>
         <div className="w-[80px] sm:w-[30vw] sm:max-w-[176px] mr-auto">
