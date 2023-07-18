@@ -68,31 +68,9 @@ const autolinkHeadingOption: AutolinkHeadingsOptions = {
 
 const prettyCodeOptions: Partial<PrettyCodeOptions> = {
   theme: {
-    dark: JSON.parse(readFileSync('./code_theme/light-plus-noctis.json', 'utf-8')),
+    dark: JSON.parse(readFileSync('./code_theme/one-dark-pro-monokai-darker.json', 'utf-8')),
     /* 💡Copy https://github.com/saicharan-m/light-plus-noctis/blob/main/themes/Noctis%20Light%2B-color-theme.json */
-    light: JSON.parse(readFileSync('./code_theme/light-plus-noctis.json', 'utf-8')),
-  },
-  onVisitLine(node: any) {
-    // Prevent lines from collapsing in `display: grid` mode, and allow empty
-    // lines to be copy/pasted
-    if (node.children.length === 0) {
-      node.children = [{ type: 'text', value: ' ' }]
-    }
-  },
-  onVisitHighlightedLine(node: any) {
-    node.properties.className.push('line--highlighted')
-  },
-  onVisitHighlightedWord(node: any, id: string) {
-    node.properties.className = ['word--highlighted']
-
-    if (id) {
-      /* 💡 In markdown:' ```ts /target1/#y /target2/#b ' will highlight all matched text yellow or blue*/
-      const colorClass = {
-        y: 'yellow',
-        b: 'blue',
-      }[id]
-      node.properties.className.push(colorClass)
-    }
+    light: JSON.parse(readFileSync('./code_theme/one-monokai-light.json', 'utf-8')),
   },
 }
 

@@ -63,7 +63,7 @@ html {
 }
 
 .prose pre {
-  @apply bg-gray-100 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 py-3 px-0;
+  @apply border border-gray-200 dark:border-gray-700 py-3 px-0;
 }
 
 /* blockquote */
@@ -93,6 +93,17 @@ html {
   display: none;
 }
 
+/* Fenced Code block - word highlight */
+.prose span[data-highlighted-chars] {
+  @apply bg-green-400 bg-opacity-25;
+}
+.prose span[data-highlighted-chars][data-chars-id='y'] {
+  @apply bg-yellow-400 bg-opacity-25;
+}
+.prose span[data-highlighted-chars][data-chars-id='b'] {
+  @apply bg-blue-400 bg-opacity-25;
+}
+
 /* Fenced Code block - with title style*/
 .prose div[data-rehype-pretty-code-title] {
   @apply px-5 py-3 font-mono text-sm font-bold text-gray-800 bg-gray-200 border border-b-0 border-gray-200 rounded-t-lg dark:text-gray-200 dark:border-gray-700 dark:bg-gray-800;
@@ -106,7 +117,7 @@ html {
   counter-reset: line;
 }
 
-.prose code[data-line-numbers] > .line::before {
+.prose code[data-line-numbers] > span[data-line]::before {
   counter-increment: line;
   content: counter(line);
 
@@ -117,32 +128,22 @@ html {
   color: gray;
 }
 
-.prose code[data-line-numbers-max-digits='2'] > .line::before {
+.prose code[data-line-numbers-max-digits='2'] > span[data-line]::before {
   width: 1.25rem;
 }
-.prose code[data-line-numbers-max-digits='3'] > .line::before {
+.prose code[data-line-numbers-max-digits='3'] > span[data-line]::before {
   width: 1.75rem;
 }
 
 /* Fenced Code block - line style */
-.prose pre code .line {
+.prose pre span[data-line] {
   @apply inline-block px-4 py-0.5 leading-snug;
 }
 
 /* Fenced Code block - line hightlight */
-.prose code .line.line--highlighted {
+.prose code span[data-highlighted-line] {
   padding-left: calc(1rem - 2px);
   @apply border-l-2 border-y-0 border-transparent border-blue-400 bg-slate-400 dark:border-blue-500 dark:bg-gray-800  bg-opacity-10;
-}
-/* Fenced Code block - word highlight */
-.prose code .word--highlighted {
-  @apply rounded px-1 py-0.5 bg-opacity-25 bg-green-400;
-}
-.prose code .word--highlighted.yellow {
-  @apply bg-yellow-400 bg-opacity-25;
-}
-.prose code .word--highlighted.blue {
-  @apply bg-blue-400 bg-opacity-25;
 }
 
 /*  inline code block backtick display: none */
@@ -153,7 +154,7 @@ html {
 
 /*  inline code block style */
 .prose :not(pre) > code {
-  @apply bg-gray-100 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 font-mono text-sm font-normal align-middle py-1 px-1.5 rounded;
+  @apply dark:bg-gray-900 bg-white border border-gray-200 dark:border-gray-700 font-mono text-sm font-normal align-middle py-0.5 px-1 rounded;
 }
 
 /** 🖼️ image style **/
