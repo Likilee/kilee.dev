@@ -219,6 +219,8 @@ Profiling 결과를 확인해보니 <sup>*</sup>플레임 그래프(Flame Graph)
 </template>
 
 <script setup lang="ts">
+  import { ElSelect , ElOption } from 'element-plus'
+  
   interface Props {
     options: string[];
     isLoading: boolean;
