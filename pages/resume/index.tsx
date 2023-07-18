@@ -26,11 +26,9 @@ export default function Resume() {
         Resume
       </h1>
       <p className="mb-4 text-gray-600 dark:text-gray-300">
-        2년차 프론트엔드 개발자로서, 두 번의 창업 실패 경험이 있습니다. 개발을 비즈니스의 성장의
+        2년차 프론트엔드 개발자, 두 번의 창업 실패 경험이 있습니다. 개발을 비즈니스의 성장의
         수단으로 믿습니다. 깨끗하고 효율적인 코드를 작성하고, 프로세스를 자동화하고, 지속적으로
-        실험함으로써 비즈니스 결과를 이끌어내는 것이 개인적인 목표입니다. 더 나은 방법을 찾아
-        비즈니스 목표를 달성하고 데이터 기반 의사 결정을 내리는 것에 열정적입니다. 창업 경험으로
-        기술 우수성과 비즈니스 영향력 사이의 균형의 중요성에 대한 다른 관점을 가졌습니다.
+        개선하는 것을 좋아합니다
       </p>
       <article className="w-full">
         <section
@@ -59,13 +57,14 @@ export default function Resume() {
             <p className="flex items-center gap-2">
               <TbPencil />
               {/* <ExternalLink href="https://kilee.io">https://kilee.io</ExternalLink> */}
-              <ExternalLink href="https://kimmaster.dev">https://kimmaster.dev</ExternalLink>
+              <ExternalLink href="https://kilee.dev">https://kilee.dev</ExternalLink>
             </p>
           </div>
         </section>
         <div id="contents" className="flex flex-col gap-4">
           <Section.Wrapper>
             <Section.Title Icon={TbBriefcase}>PROFESSIONAL EXPERIENCE</Section.Title>
+            {/* Exem */}
             <Project.Title organization="(주)EXEM" period="2022.08 - 현재" />
             <Project.Role>연구원 / 개발2본부 프론트엔드팀</Project.Role>
             <Project.Stack>
@@ -77,11 +76,32 @@ export default function Resume() {
               <BorderedBadge>Apache-Echarts</BorderedBadge>
             </Project.Stack>
             <Project.Summary>
-              Infrastructure & Application Monitoring as a Service 신제품 개발 본부에서
-              프론트엔드 개발에 참여 중입니다. 대량의 시계열 데이터를 다양한 형태로 시각화하는
-              대시보드 기능 개발을 주도하고 있습니다.
+              DataSaker - Infrastructure Monitoring as a Service - 프론트엔드 개발 중입니다.
+              대량의 시계열 데이터를 다양한 형태로 시각화하는 대시보드 기능의 설계와 개발 및
+              아키텍처 설계를 주도하고 있습니다. 협업 프로세스 개선을 위해 칸반 매서드를 팀에
+              도입하고 리드하고 있습니다.
             </Project.Summary>
-            <Project.AchieveMentList>
+
+            {/* 뽑아조 */}
+            <Project.Title organization="뽑아조" period="2017.08 - 2020.04" />
+            <Project.Role>대표 / 서비스 개발 및 운영</Project.Role>
+            <Project.Stack>
+              <BorderedBadge>사업화</BorderedBadge>
+              <BorderedBadge>리더십</BorderedBadge>
+              <BorderedBadge>행동력</BorderedBadge>
+              <BorderedBadge>사업 기획</BorderedBadge>
+              <BorderedBadge>위기 관리</BorderedBadge>
+            </Project.Stack>
+            <Project.Summary>
+              사업화를 위해 빠른 MVP 개발과 초기 유저 테스트를 진행하고, 이를 기반으로 사업화
+              가능성을 증명하여 정부지원사업 수주를 하였습니다. 또한 전문 SI 업체와 협업하여
+              서비스를 개발하고, 산학협력 인턴십 프로그램을 운영하여 8명의 인턴분들이 주도적으로
+              업무를 수행할 수 있도록 이끌었습니다. 제휴 인쇄소 5개소를 확보하여 중앙대학교를
+              거점으로 서비스를 운영하고, 2019 도전K스타트업 대회에서 본선에 진출하였습니다.
+              개발 역량없이 IT 서비스를 사업화하는 것은 불가능하다는 것을 깨닫고 폐업 후
+              개발자로 전향하였습니다.
+            </Project.Summary>
+            {/* <Project.AchieveMentList>
               <li>
                 대시보드에서 시계열 데이터의 안정적인 사용을 위한 데이터 시각화 위젯 인터페이스
                 설계 및 개발 주도
@@ -99,7 +119,7 @@ export default function Resume() {
                 달성률 평균 20% 이상 증가
               </li>
               <li>팀 역량 강화를 위한 매주 프론트엔드 팀 Tech Talk 프로그램 활성화 및 운영</li>
-            </Project.AchieveMentList>
+            </Project.AchieveMentList> */}
           </Section.Wrapper>
 
           <Section.Wrapper>

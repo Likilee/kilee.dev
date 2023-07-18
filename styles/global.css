@@ -14,7 +14,7 @@ html {
   flex-direction: column;
   min-height: 100vh;
 
-  word-break: keep-all;
+  word-break: break-all;
 }
 
 /** 📝 Article's css **/
@@ -170,3 +170,8 @@ html {
 .prose .image-caption figcaption::after {
   content: ' >';
 }
+
+/* image zoom  */
+/* .prose .image-caption img {
+  @apply cursor-zoom-in transition-transform duration-300 ease-in-out transform hover:scale-150;
+} */

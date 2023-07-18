@@ -2,7 +2,10 @@
 title: Chrome Devtools와 Vue Devtools를 활용한 Vue 앱의 퍼포먼스 이슈 원인 분석
 date: 2023-05-14
 summary: 프론트엔드 프로젝트에서 발생한 퍼포먼스 이슈를 해결하는 과정을 다룹니다. Chrome Devtools의 퍼포먼스 프로파일링과 Vue Devtools를 활용하여 원인을 분석하고, 특정 컴포넌트의 과도한 Mount 이벤트가 문제의 원인임을 확인합니다. 이후 적절한 컴포넌트로 교체하여 성능 개선을 확인합니다. 이 글은 웹 앱 개발자들에게 효과적인 퍼포먼스 디버깅과 개선에 대한 인사이트를 공유하고자 작성되었습니다.
+
+
 ---
+
 ## 시작하며
 
 > "틀린 문제에서 올바른 답은 나올 수 없다" - 영화 이상한 나라의 수학자
@@ -147,7 +150,7 @@ Performance 패널을 통해 지연 시간의 원인이 클릭 이벤트에 따�
 
 Profiling 결과를 확인해보니 <sup>*</sup>플레임 그래프(Flame Graph)가 위와 같은 모양으로 나타났습니다.
 
-> #### <sup>*</sup>>플레임 그래프
+> #### <sup>*</sup>플레임 그래프
 >
 > 플레임 그래프(Flame Graph)는 소프트웨어 프로파일링(software profiling)에서 사용되는 시각화 도구입니다. 프로파일링이란 컴퓨터 프로그램 실행 중에 발생하는 함수 호출과 같은 이벤트를 측정하여 프로그램의 실행 시간, 자원 사용 등을 분석하는 기술입니다.
 >
@@ -229,15 +232,13 @@ prop으로 전달받은 options 배열을 `ElOption{:js}`  v-for를 통해 반�
 
 `ElSelect{:js}` 가 어떤 방식으로 Option PopOver를 생성하는지 개발자 도구의 Elements 탭에서 확인해보겠습니다.
 
-![a lot of elements](../public/images/vue3-performance-profiling/image-20230509215603627.png)
+![수 많은 div 요소](../public/images/vue3-performance-profiling/image-20230509215603627.png)
 
-Element Tab을 확인해보니 `ElSelect{:js}`  컴포넌트가 마운트 될 때, Dom 트리에 `el-popper`  class의 `<div>{:html}` 엘리먼트(이하 `PopOver{:js}`)가 추가됩니다.
+Element Tab을 확인해보니 `ElSelect{:js}`  컴포넌트가 마운트 될 때, Dom 트리에 `el-popper`  class를 가진 `<div>{:html}` 엘리먼트가 추가됩니다. 그리고 그 안에 옵션의 수 만큼의  `<li>{:html}` 엘리먼트가 추가됩니다. 
 
-그리고 자식으로 전달한 option 수 만큼의  `<li>{:html}` 엘리먼트가 추가됩니다. 
+최초에 인라인 스타일로  `display: none{:css}`가 적용되어 옵션의 목록을 숨겨두고, Select를 클릭할 때 마다  `display: none{:css}` 을 인라인 스타일로 추가/제거 하는 방식으로 옵션 목록을 보여주고 감추는 원리였습니다.
 
-`PopOver{:js}`는 최초에 인라인 스타일로  `display: none{:css}`가 적용되어있고, Select를 클릭할때 마다  `display: none{:css}` 을 인라인 스타일로 추가/제거 하는 방식으로 동작하는 원리였습니다.
-
-이러한  `ElSelect{:js}`의 동작 방식이 매우 많은 수의 Option과 함께 사용할 경우 Long Task를 발생시키고 있었습니다. 
+이러한  `ElSelect{:js}`의 동작 방식은 컴포넌트가 마운트될 때, 옵션의 수 만큼의 `<li>{:html}` 엘리먼트를  Dom 트리에 추가하기 때문에, 매우 많은 양의 Option과 함께 사용할 경우 Long Task로 인한 성능 저하가 발생될 수 있습니다.
 
 
 
@@ -257,7 +258,7 @@ Element Tab을 확인해보니 `ElSelect{:js}`  컴포넌트가 마운트 될 �
 
 문제 해결 과정은 이 글의 주제 밖이기 때문에 짧게 넘어가겠습니다.
 
-우리 팀은 `ElSelectV2{:js}`에 대한 사용성 테스트를 진행 한 뒤, `ElSelect{:js}`를 `ElSelectV2{:js}`로 교체하는 작업을 진행했습니다.
+저희 팀은 `ElSelectV2{:js}`에 대한 사용성 테스트를 진행 한 뒤, `ElSelect{:js}`를 `ElSelectV2{:js}`로 교체하는 작업을 진행했습니다.
 
 `ElSelectV2{:js}`는 Slot 형태로 Options을 받지 않고, Prop으로 Options 를 받아서 메모리 상에서만 데이터를 가지고 있습니다.
 

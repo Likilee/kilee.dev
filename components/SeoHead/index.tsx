@@ -19,19 +19,19 @@ export default function SeoHead({
   const router = useRouter()
   return (
     <Head>
-      <title>{`${title} | KIM MASTER`}</title>
+      <title>{`${title} | Kilee`}</title>
       <meta name="robots" content="follow, index" />
       <meta content={description} name="description" />
       <meta
         property="og:url"
-        content={`${process.env.SITE_URL || 'https://kimmaster.dev'}${router.asPath}`}
+        content={`${process.env.SITE_URL || 'https://kilee.dev'}${router.asPath}`}
       />
-      <meta property="og:site_name" content="Kim Master" />
+      <meta property="og:site_name" content="Kilee" />
       <link
         rel="canonical"
-        href={`${process.env.SITE_URL || 'https://kimmaster.dev'}${router.asPath}`}
+        href={`${process.env.SITE_URL || 'https://kilee.dev'}${router.asPath}`}
       />
-      <meta property="og:title" content={`${title} | KIM MASTER`} />
+      <meta property="og:title" content={`${title} | Kilee`} />
       <meta property="og:type" content={ogType} />
       <meta property="og:description" content={description} />
       <meta property="og:image" content={imageUrl} />
