@@ -13,8 +13,8 @@ export default function Blog({
   return (
     <PageLayout>
       <SeoHead
-        title="김마스터의 블로그"
-        description="더 나은 사용성을 UX를 위한 웹 프론트엔드 기술에 관심이 많은 개발자 김마스터입니다."
+        title="Kilee의 블로그"
+        description="웹 프론트엔드 기술에 관심이 많은 개발자 Kilee입니다."
         ogType="blog"
       />
       <h1 className="mb-4 text-3xl font-bold tracking-tight text-black md:text-5xl dark:text-white ">
