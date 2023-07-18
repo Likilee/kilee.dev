@@ -7,7 +7,7 @@ import { Post } from 'contentlayer/generated'
 import ViewCounter from 'components/ViewCounter'
 
 type Props = {
-  post: Post
+  post: Pick<Post, 'title' | 'date' | 'readtime' | 'slug'>
 }
 
 export default function PostLayout({ post, children }: PropsWithChildren<Props>) {
