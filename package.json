@@ -13,6 +13,7 @@
     "build-storybook": "storybook build -s public"
   },
   "dependencies": {
+    "@giscus/react": "^2.3.0",
     "@next/font": "13.0.7",
     "@planetscale/database": "^1.5.0",
     "@tanstack/react-query": "^4.24.6",

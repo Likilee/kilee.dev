@@ -3,6 +3,7 @@ import PostLayout from 'layouts/PostLayout'
 import { allPosts } from 'contentlayer/generated'
 import Mdx from 'components/Mdx'
 import SeoHead from 'components/SeoHead'
+import Comments from 'components/Comments'
 
 export default function PostPage({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
   const {
@@ -19,6 +20,7 @@ export default function PostPage({ post }: InferGetStaticPropsType<typeof getSta
       />
       <PostLayout post={post}>
         <Mdx code={code} />
+        <Comments />
       </PostLayout>
     </>
   )
