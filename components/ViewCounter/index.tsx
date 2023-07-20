@@ -15,6 +15,7 @@ export default function ViewCounter({ slug, trackView }: ViewCounterProps) {
 
   useEffect(() => {
     if (trackView) increaseViewForSlug.mutate(slug)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [slug])
 
   if (isLoading)
