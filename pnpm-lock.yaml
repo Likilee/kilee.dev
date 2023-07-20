@@ -81,34 +81,34 @@ dependencies:
     specifier: ^1.5.0
     version: 1.5.0
   rehype-autolink-headings:
-    specifier: ^6.1.1
+    specifier: 6.1.1
     version: 6.1.1
   rehype-figure:
-    specifier: ^1.0.1
+    specifier: 1.0.1
     version: 1.0.1
   rehype-pretty-code:
-    specifier: ^0.10.0
+    specifier: 0.10.0
     version: 0.10.0(shiki@0.14.3)
   rehype-slug:
     specifier: ^5.1.0
     version: 5.1.0
   rehype-url-inspector:
-    specifier: ^2.0.2
+    specifier: 2.0.2
     version: 2.0.2
   remark-gfm:
-    specifier: ^3.0.1
+    specifier: 3.0.1
     version: 3.0.1
   sharp:
-    specifier: ^0.31.3
+    specifier: 0.31.3
     version: 0.31.3
   shiki:
-    specifier: ^0.14.3
+    specifier: 0.14.3
     version: 0.14.3
   typescript:
     specifier: 4.9.4
     version: 4.9.4
   unist-util-visit:
-    specifier: ^4.1.2
+    specifier: 4.1.2
     version: 4.1.2
   use-delayed-render:
     specifier: ^0.0.7
