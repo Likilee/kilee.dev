@@ -11,10 +11,10 @@ const BadgeColor = [
   'purple',
   'pink',
 ] as const
-type BadgeColor = typeof BadgeColor[number]
+type BadgeColor = (typeof BadgeColor)[number]
 
 const BadgeSize = ['xs', 'sm', 'md'] as const
-type BadgeSize = typeof BadgeSize[number]
+type BadgeSize = (typeof BadgeSize)[number]
 
 type Props = {
   color?: BadgeColor
