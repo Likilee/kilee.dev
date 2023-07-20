@@ -71,6 +71,12 @@ const prettyCodeOptions: PrettyCodeOptions = {
     dark: JSON.parse(readFileSync('./code_theme/one-dark-pro-darker.json', 'utf-8')),
     light: JSON.parse(readFileSync('./code_theme/atom-one-light.json', 'utf-8')),
   },
+  tokensMap: {
+    fn: 'entity.name.function',
+    str: 'string',
+    var: 'variable.other.constant',
+    attr: 'variable.other.readwrite',
+  },
 }
 
 export default makeSource({
