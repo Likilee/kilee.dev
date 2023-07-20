@@ -1,8 +1,7 @@
 import imageSize from 'image-size'
 import path from 'path'
-import { Processor } from 'unified'
-import { Node } from 'unist'
 import { visit } from 'unist-util-visit'
+import { Node } from 'unist-util-visit/lib'
 import { promisify } from 'util'
 
 const sizeOf = promisify(imageSize)
@@ -51,7 +50,7 @@ async function addMetadata(node: ImageNode): Promise<void> {
   node.properties.height = Math.round(res.height * ratio)
 }
 
-export default function rehypeImgSizeWithFullWidth(this: Processor) {
+export default function rehypeImgSizeWithFullWidth() {
   return async function transformer(tree: Node): Promise<Node> {
     const imgNodes: ImageNode[] = []
 
