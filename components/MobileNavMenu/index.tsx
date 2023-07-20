@@ -33,8 +33,10 @@ export default function MobileNavMenu() {
   const handleToggleMenu = () => {
     if (isMenuOpen) {
       setIsMenuOpen(false)
+      document.body.style.overflow = ''
     } else {
       setIsMenuOpen(true)
+      document.body.style.overflow = 'hidden'
     }
   }
 
@@ -68,7 +70,7 @@ export default function MobileNavMenu() {
           className={cn(
             'flex flex-col absolute gap-6 bg-gray-50 dark:bg-gray-900',
             'dark:bg-gray-900 bg-gray-50',
-            'pb-1 pr-7',
+            'pb-1 pr-9 pl-1',
             'left-0 top-24 h-[calc(100vh-6rem)] w-full',
             'z-10',
             !isMenuRendered && styles.menuBeforeRender,
