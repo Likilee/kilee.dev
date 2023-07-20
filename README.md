@@ -3,8 +3,8 @@
 
 ## 실행
 ```shell
-$ yarn
-$ yarn build && yarn start
+$ pnpm i
+$ pnpm build && pnpm start
 ```
 [`localhost:3000`](http://localhost:3000/) 실행
 ## 사용
@@ -17,14 +17,14 @@ $ yarn build && yarn start
 - [x] Dark Theme
 - [x] Pc ↔️ Mobile 반응형
 - [x] Self host font
-- [ ] Blog
+- [x] Blog
   - [x] SSG(Static Site generation)
   - [x] Repo에 포스팅 및 이미지 저장
   - [x] Extended markdown - gfm
   - [x] Code block 하이라이트
   - [X] 블로그 view count
-  - [ ] 댓글
-  - [ ] Seo 최적화
+  - [x] 댓글
+  - [x] Seo 최적화
   - [X] Image 압축 Action
 - [ ] Resume
   - [x] Resume 페이지
@@ -32,12 +32,8 @@ $ yarn build && yarn start
 
 
 ### Stage2
-- [ ] Editor
-
-  프로젝트 페이지 컨텐츠를 편집할 수 있다.
-- [ ] Knowlege
-  내가 완벽히 아는 것, 모른다는 것을 아는 것, 궁금한 것을 구분하여 관리하는 지식 관리 시스템 페이지
-## 구현
+- [ ] Resource
+  - [ ] 학습 자료를 제공하는 페이지를 만든다.
 
 ## 트러블 슈팅
 
