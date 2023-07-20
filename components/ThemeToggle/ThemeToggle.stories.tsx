@@ -3,7 +3,6 @@ import ThemeToggle from './ThemeToggle'
 
 const meta: Meta<typeof ThemeToggle> = {
   component: ThemeToggle,
-  tags: ['docsPage'],
 }
 
 export default meta
