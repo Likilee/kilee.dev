@@ -58,8 +58,8 @@ html {
   text-indent: -2rem;
 }
 
-.prose .task-list-item p input[type='checkbox'] {
-  @apply w-[1.2rem] h-[1.2rem] align-middle mr-2;
+.prose .task-list-item input[type='checkbox'] {
+  @apply w-[1.2rem] h-[1.2rem] align-middle mr-2 my-0;
 }
 
 .prose pre {
