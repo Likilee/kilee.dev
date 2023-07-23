@@ -18,9 +18,7 @@ import {
 export default function Resume() {
   return (
     <PageLayout>
-      <div>
-        "hson resume"
-      </div>
+      <div>hson resume</div>
     </PageLayout>
   )
   // return (
