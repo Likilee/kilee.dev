@@ -14,7 +14,7 @@ export default function Blog({
   return (
     <PageLayout>
       <SeoHead
-        title="hson의 블로그"
+        title="hson의 BLOG"
         description="웹 프론트엔드 기술에 관심이 많은 개발자 hson입니다."
         ogType="blog"
       />
@@ -22,7 +22,7 @@ export default function Blog({
         {`Blog`}
       </h1>
       <p className="mb-4 text-gray-600 dark:text-gray-400">
-        {`2023년 부터 주로 웹 개발에 대해 글을 쓰고 있어요. 기술 자체보다 문제 해결을 위한 활용에 더 관심이 많은 개발자에요. 지금까지 블로그에 총 ${allPosts.length}개의 글을 작성했어요. `}
+        {`2023년 부터 데이터에 대한 글을 써보고자 합니다. 기술 자체보다 문제 해결을 위한 활용에 더 관심이 많은 개발자에요. 지금까지 블로그에 총 ${allPosts.length}개의 글을 작성했어요. `}
       </p>
       <h2 className="mt-8 mb-4 text-2xl font-bold tracking-tight text-black md:text-4xl dark:text-white">
         All Posts
