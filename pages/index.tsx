@@ -2,7 +2,7 @@
 import SeoHead from 'components/SeoHead'
 import PageLayout from 'layouts/PageLayout'
 import Image from 'next/image'
-import avatar from 'public/kimmaster.png'
+import avatar from 'public/hson.png'
 
 export default function Home() {
   const title = 'hson - 한치 앞도 모르는 인생 좋아하는 것에 몰입하며 살테다.'

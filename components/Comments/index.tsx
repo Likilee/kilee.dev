@@ -26,14 +26,14 @@ export default function Comments() {
     <Giscus
       id="comments"
       repo="hwsonnn/hson.dev.blog"
-      repoId="R_kgDOIyOubg"
-      category="Comments"
-      categoryId="DIC_kwDOIyOubs4CX_Nw"
+      repoId="R_kgDOJ-rLSg"
+      category="comments"
+      categoryId="DIC_kwDOJ-rLSs4CYEnJ"
       mapping="pathname"
       strict="0"
       reactions-enabled="1"
       emit-metadata="0"
-      input-position="top"
+      input-position="bottom"
       theme={
         resolvedTheme === 'dark'
           ? ('transparent_dark' satisfies DefaultThemeType)

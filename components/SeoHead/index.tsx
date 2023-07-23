@@ -14,7 +14,7 @@ export default function SeoHead({
   description,
   date,
   ogType,
-  imageUrl = 'https://kimmaster.dev/kimmaster.png',
+  imageUrl = 'https://hson.site/hson.png',
 }: SeoHeadProps) {
   const router = useRouter()
   return (
