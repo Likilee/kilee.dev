@@ -32,7 +32,7 @@ export default function PostLayout({ post, children }: PropsWithChildren<Props>)
             className="rounded-full"
           />
           <p className="text-sm text-gray-700 dark:text-gray-300">
-            {`Kilee / `}
+            {`hson / `}
             {format(parseISO(post.date), 'MMMM dd, yyyy')}
           </p>
         </div>

@@ -25,7 +25,7 @@ export default function Comments() {
   return (
     <Giscus
       id="comments"
-      repo="Likilee/kilee.dev"
+      repo="hwsonnn/hson.dev.blog"
       repoId="R_kgDOIyOubg"
       category="Comments"
       categoryId="DIC_kwDOIyOubs4CX_Nw"

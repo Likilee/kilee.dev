@@ -1,3 +1,4 @@
+// blog main page
 import { BlogPost } from 'components/BlogPost'
 import { GetStaticProps, InferGetServerSidePropsType } from 'next'
 import PageLayout from 'layouts/PageLayout'
@@ -13,8 +14,8 @@ export default function Blog({
   return (
     <PageLayout>
       <SeoHead
-        title="Kilee의 블로그"
-        description="웹 프론트엔드 기술에 관심이 많은 개발자 Kilee입니다."
+        title="hson의 블로그"
+        description="웹 프론트엔드 기술에 관심이 많은 개발자 hson입니다."
         ogType="blog"
       />
       <h1 className="mb-4 text-3xl font-bold tracking-tight text-black md:text-5xl dark:text-white ">

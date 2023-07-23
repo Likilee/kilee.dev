@@ -1,3 +1,4 @@
+// article page
 import { GetStaticPaths, GetStaticPropsContext, InferGetStaticPropsType } from 'next'
 import PostLayout from 'layouts/PostLayout'
 import { allPosts } from 'contentlayer/generated'

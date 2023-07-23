@@ -30,7 +30,7 @@ export default function Footer() {
             'text-gray-500 hover:text-gray-600 dark:hover:text-gray-400 transition',
             'flex flex-row items-center gap-1',
           )}
-          href="https://github.com/Likilee"
+          href="https://github.com/hwsonnn"
         >
           <TbBrandGithub />
           Github
@@ -40,7 +40,7 @@ export default function Footer() {
             'text-gray-500 hover:text-gray-600 dark:hover:text-gray-400 transition',
             'flex flex-row items-center gap-1',
           )}
-          href="https://www.linkedin.com/in/kihoon-lee-8b6250232"
+          href=""
         >
           <TbBrandLinkedin />
           LinkedIn
