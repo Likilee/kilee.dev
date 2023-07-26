@@ -38,7 +38,7 @@ $ pnpm build && pnpm start
 ## 트러블 슈팅
 
 - Variable font 의 font weight이 가변적으로 적용되지 않고, 100,350 등 일반 폰트처럼 동작하는 문제
-- Posting 내의 코드 블럭 syntax highlighting에 테마 적용
+- Posting 내의 코드 블록 syntax highlighting에 테마 적용
 - External link ref 에 noopener norefernece 를 통해 보안 및 퍼포먼스 강화
 - Safari 에서 특정 Regex가 동작하지 않는 이슈
 
