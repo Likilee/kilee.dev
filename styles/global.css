@@ -128,18 +128,20 @@ html {
 
 /* Fenced Code block - line hightlight */
 .prose code span[data-highlighted-line] {
-  @apply border-l-2 border-y-0 border-transparent border-blue-400 bg-indigo-400 dark:border-blue-500 dark:bg-slate-700  bg-opacity-10 pl-[calc(0.5rem-2px)] md:pl-[calc(1rem-2px)]
+  @apply border-l-2 border-y-0 border-transparent bg-opacity-10 
+      border-blue-400 bg-indigo-400 dark:border-blue-500 dark:bg-slate-700
+        pl-[calc(0.5rem-2px)] md:pl-[calc(1rem-2px)]
 }
 
 /* Fenced Code block - word highlight */
 .prose span[data-highlighted-chars] {
-  @apply bg-green-400 bg-opacity-25;
+  @apply bg-teal-400  bg-opacity-25;
 }
 .prose span[data-highlighted-chars][data-chars-id='y'] {
-  @apply bg-yellow-400 bg-opacity-25;
+  @apply bg-yellow-400  bg-opacity-25;
 }
 .prose span[data-highlighted-chars][data-chars-id='b'] {
-  @apply bg-blue-400 bg-opacity-25;
+  @apply bg-sky-400 bg-opacity-25;
 }
 
 /* Fenced Code block - with title style*/
