@@ -66,11 +66,16 @@ const autolinkHeadingOption: AutolinkHeadingsOptions = {
   },
 }
 
-const prettyCodeOptions: Partial<PrettyCodeOptions> = {
+const prettyCodeOptions: PrettyCodeOptions = {
   theme: {
     dark: JSON.parse(readFileSync('./code_theme/one-dark-pro-darker.json', 'utf-8')),
-    /* 💡Copy https://github.com/saicharan-m/light-plus-noctis/blob/main/themes/Noctis%20Light%2B-color-theme.json */
     light: JSON.parse(readFileSync('./code_theme/atom-one-light.json', 'utf-8')),
+  },
+  tokensMap: {
+    fn: 'entity.name.function',
+    str: 'string',
+    var: 'variable.other.constant',
+    attr: 'variable.other.readwrite',
   },
 }
 
