@@ -37,7 +37,7 @@ export default function NavBar() {
         <div className="hidden md:flex gap-1 ml-[-0.6rem] ">
           <NavItem href="/" text="Home" />
           <NavItem href="/blog" text="Blog" />
-          <NavItem href="/resume" text="Resume" />
+          {/* <NavItem href="/resume" text="Resume" /> */}
         </div>
         <ThemeToggle />
       </nav>

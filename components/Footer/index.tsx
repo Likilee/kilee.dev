@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { PropsWithChildren } from 'react'
-import { TbBrandGithub, TbBrandLinkedin, TbBriefcase } from 'react-icons/tb'
+import { TbBrandBlogger, TbBrandGithub, TbBrandLinkedin, TbBriefcase } from 'react-icons/tb'
 import cn from 'classnames'
 
 function ExternalLink({
@@ -25,6 +25,16 @@ export default function Footer() {
     >
       <hr className="w-full border-1 border-gray-200 dark:border-gray-800 mb-8"></hr>
       <div className="w-full flex flex-wrap flex-col sm:flex-row justify-start gap-4">
+        <Link
+          href="/blog"
+          className={cn(
+            'text-gray-500 hover:text-gray-600 dark:hover:text-gray-400 transition',
+            'flex flex-row items-center gap-1',
+          )}
+        >
+          <TbBrandBlogger />
+          Blog
+        </Link>
         <ExternalLink
           className={cn(
             'text-gray-500 hover:text-gray-600 dark:hover:text-gray-400 transition',

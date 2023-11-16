@@ -87,11 +87,11 @@ export default function MobileNavMenu() {
               Blog
             </Link>
           </MunuItem>
-          <MunuItem show={isMenuRendered} extraClass="!delay-[200ms]">
+          {/* <MunuItem show={isMenuRendered} extraClass="!delay-[200ms]">
             <Link href="/resume" onClick={handleToggleMenu}>
               Resume
             </Link>
-          </MunuItem>
+          </MunuItem> */}
         </ul>
       )}
     </>
