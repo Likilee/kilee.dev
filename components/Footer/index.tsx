@@ -55,7 +55,7 @@ export default function Footer() {
           <TbBrandLinkedin />
           LinkedIn
         </ExternalLink>
-        <Link
+        {/* <Link
           className={cn(
             'text-gray-500 hover:text-gray-600 dark:hover:text-gray-400 transition',
             'flex flex-row items-center gap-1',
@@ -64,7 +64,7 @@ export default function Footer() {
         >
           <TbBriefcase />
           Resume
-        </Link>
+        </Link> */}
       </div>
     </footer>
   )
