@@ -32,6 +32,9 @@ dependencies:
   '@vercel/postgres':
     specifier: ^0.8.0
     version: 0.8.0
+  '@vercel/postgres-kysely':
+    specifier: ^0.8.0
+    version: 0.8.0(kysely@0.23.5)
   cjk-slug:
     specifier: 0.3.1
     version: 0.3.1
@@ -4859,6 +4862,16 @@ packages:
 
   /@vercel/analytics@1.0.1:
     resolution: {integrity: sha512-Ux0c9qUfkcPqng3vrR0GTrlQdqNJ2JREn/2ydrVuKwM3RtMfF2mWX31Ijqo1opSjNAq6rK76PwtANw6kl6TAow==}
+    dev: false
+
+  /@vercel/postgres-kysely@0.8.0(kysely@0.23.5):
+    resolution: {integrity: sha512-3VCkqwtJ1p7p6P7tURJxDDVb6a7riXK8O2dsnXNESZ+C0txHLSNGlvL88w63isn10aBLJ2E1oGLqrgJRX72vJw==}
+    engines: {node: '>=14.6'}
+    peerDependencies:
+      kysely: ^0.24.2 || ^0.25.0 || ^0.26.0 || ^0.27.0
+    dependencies:
+      '@vercel/postgres': 0.8.0
+      kysely: 0.23.5
     dev: false
 
   /@vercel/postgres@0.8.0:
