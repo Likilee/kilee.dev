@@ -1,4 +1,4 @@
-import { queryBuilder } from 'lib/planetscale'
+import { queryBuilder } from 'lib/db/vercel-postrgres'
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
@@ -16,7 +16,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       await queryBuilder
         .insertInto('views')
         .values({ slug, count: 1 })
-        .onDuplicateKeyUpdate({ count: views + 1 })
+        .onConflict((conflict) => conflict.column('slug').doUpdateSet({ count: views + 1 }))
         .execute()
 
       return res.status(200).json({

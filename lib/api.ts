@@ -1,4 +1,4 @@
-import { ViewsTable } from 'lib/planetscale'
+import { ViewsTable } from './db/shceme'
 
 /* 💡 Get All View counts */
 export const getAllView = async (): Promise<ViewsTable[]> => {
