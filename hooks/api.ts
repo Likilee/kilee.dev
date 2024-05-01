@@ -6,7 +6,7 @@ import {
   useQueryClient,
 } from '@tanstack/react-query'
 import { getAllView, postViewBySlug } from 'lib/api'
-import { ViewsTable } from 'lib/planetscale'
+import { ViewsTable } from 'lib/db/planetscale'
 
 export const useAllViewCountQuery = () => {
   return useQuery({
