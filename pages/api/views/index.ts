@@ -1,4 +1,4 @@
-import { queryBuilder } from 'lib/db/planetscale'
+import { queryBuilder } from 'lib/db/vercel-postrgres'
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
