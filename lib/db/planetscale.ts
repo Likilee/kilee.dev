@@ -1,15 +1,7 @@
 // import 'server-only' not working with API routes yet
 import { Kysely } from 'kysely'
 import { PlanetScaleDialect } from 'kysely-planetscale'
-
-export interface ViewsTable {
-  slug: string
-  count: number
-}
-
-interface Database {
-  views: ViewsTable
-}
+import { Database } from './shceme'
 
 export const queryBuilder = new Kysely<Database>({
   dialect: new PlanetScaleDialect({
