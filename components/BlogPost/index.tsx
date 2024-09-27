@@ -23,7 +23,9 @@ export function BlogPost({ slug, title, summary, tag }: Props) {
             {!!tag?.length && (
               <div className="flex flex-wrap items-center w-full space-x-2 mb-2">
                 {tag?.map((t) => (
-                  <Badge variant="secondary">{t}</Badge>
+                  <Badge key={t} variant="secondary">
+                    {t}
+                  </Badge>
                 ))}
               </div>
             )}

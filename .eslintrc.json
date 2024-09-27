@@ -5,6 +5,5 @@
     "plugin:storybook/recommended",
     "plugin:prettier/recommended"
   ],
-  "exclude": [".contentlayer"],
   "plugins": ["prettier"]
 }
