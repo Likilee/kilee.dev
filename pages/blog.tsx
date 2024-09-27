@@ -26,20 +26,20 @@ export default function Blog({
       <h2 className="mt-8 mb-4 text-2xl font-bold tracking-tight text-black md:text-4xl dark:text-white">
         All Posts
       </h2>
-      {postMetas.map(({ _id, slug, title, summary, date }) => (
-        <BlogPost key={_id} slug={slug} title={title} date={date} summary={summary} />
+      {postMetas.map(({ _id, slug, title, summary, date, tag }) => (
+        <BlogPost key={_id} slug={slug} title={title} date={date} summary={summary} tag={tag} />
       ))}
     </PageLayout>
   )
 }
 
 export const getStaticProps: GetStaticProps<{
-  postMetas: Pick<Post, '_id' | 'slug' | 'title' | 'summary' | 'date'>[]
+  postMetas: Pick<Post, '_id' | 'slug' | 'title' | 'summary' | 'date' | 'tag'>[]
 }> = async () => {
   const postMetas = allPosts
     .map((post) => {
-      const { _id, slug, title, summary, date } = structuredClone(post)
-      return { _id, slug, title, summary, date }
+      const { _id, slug, title, summary, date, tag } = structuredClone(post)
+      return { _id, slug, title, summary, date, tag: tag ?? [] }
     })
     .sort((a, b) => {
       return compareDesc(new Date(a.date), new Date(b.date))

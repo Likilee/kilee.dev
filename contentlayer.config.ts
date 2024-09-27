@@ -34,6 +34,14 @@ const Post = defineDocumentType(() => ({
       description: 'The sammary of the post',
       required: true,
     },
+    tag: {
+      type: 'list',
+      of: {
+        type: 'string',
+      },
+      description: 'The tag of the post',
+      required: false,
+    },
   },
   computedFields: {
     slug: {

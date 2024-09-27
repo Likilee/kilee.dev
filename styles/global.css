@@ -182,3 +182,8 @@ html {
 /* .prose .image-caption img {
   @apply cursor-zoom-in transition-transform duration-300 ease-in-out transform hover:scale-150;
 } */
+@layer base {
+  :root {
+    --radius: 0.5rem;
+  }
+}
